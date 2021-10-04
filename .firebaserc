@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "lvad-eaf7c": {
+      "hosting": {
+        "BME440": [
+          "lvad-eaf7c"
+        ]
+      }
+    }
+  }
+}

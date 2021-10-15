@@ -1,8 +1,9 @@
-<nav class="flex bg-gray-400 w-full p-4 jusify-between">
+<nav class="flex bg-gray-400 w-full p-4 px-6 jusify-between text-white">
+  <div>Logo</div>
   <ul class="flex">
-    <li>Home</li>
-    <li>Training</li>
+    <button class="mx-2" [routerLink]="['/']">Home</button>
+    <button class="mx-2" [routerLink]="['/trainings']">Training</button>
   </ul>
-  <button [routerLink]="['/login']">Login</button>
+  <button class="ml-auto" [routerLink]="['/login']">Login</button>
 </nav>
 <router-outlet></router-outlet>

@@ -1,9 +1,61 @@
-<nav class="flex bg-gray-400 w-full p-4 px-6 jusify-between text-white">
-  <div>Logo</div>
-  <ul class="flex">
-    <button class="mx-2" [routerLink]="['/']">Home</button>
-    <button class="mx-2" [routerLink]="['/trainings']">Training</button>
-  </ul>
-  <button class="ml-auto" [routerLink]="['/login']">Login</button>
-</nav>
-<router-outlet></router-outlet>
+<!--<div class = "flex h-20 m-5 ml-30 mr-30 overflow-hidden rounded-1g bg-blue-200 items-end">
+    <h1 class = "text-3xl font-monospace text-blue-900">ED Device Assistant</h1>
+    <div>
+        <h2 class = "text-xl font-monospace self-center text blue-800"> eat pussy </h2>
+    </div>
+    <div class = "absolute right-20">
+        <button class = "font-bold"> login </button>
+    </div>
+</div>
+<div class = "container h-20:40 bg-red-200"></div> -->
+
+<header>
+    <nav class="flex items-center justify-between p-6 container mx-auto">
+        <a href=”#”>
+            <svg class="h-10 w-10"></svg> <!--logo should go here but idk how to get it to work!-->
+        </a>
+        <!--different menu sections, these are just the random ones I came up with can be changed-->
+        <div class="text-lg text-gray-600 hidden lg:flex">
+            <a href="#" class="block mt-4 lg:inline-block text-teal-600 lg:mt-0 mr-10">
+                Home
+            </a>
+            <a href="#" class="block mt-4 lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
+                Services
+            </a>
+            <a href="#" class="block mt-4 lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
+                Company
+            </a>
+            <a href="#" class="block hover:text-gray-700 mt-4 lg:inline-block lg:mt-0 mr-10">
+                Contact
+            </a>
+        </div>
+        <!-- sign in sign up -> they do clicky but don't bring you anywhere I was too lazy to figure that out-->
+        <div class="flex items-center">
+            <div class="mr-5 lg:mr-0">
+                <button class="py-2 px-6 rounded-md text-gray-600 hover:text-gray-700 text-lg">Sign in</button>
+                <button class="py-2 px-6 bg-teal-500 hover:bg-teal-600 rounded-md text-gray-700 text-lg">Sign up</button>
+            </div>
+        </div>
+    </nav>
+</header>
+<router-outlet>
+    <main class="mt-12 lg:mt-32">
+        <section class="container mx-auto px-6">
+            <div class="w-full lg:flex items-center">
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-md lg:text-2xl text-pink-600">METH HEADS PRESENTS</h2>
+                    <h1 class="text-5xl lg:text-6xl font-bold text-pink-900 mb-2 lg:mb-6">ED Device Assisatant: Research Based Simulation</h1>
+                    <p class="text-md lg:text-base text-pink-400 mb-8">A BIOMEDICAL ENGINEERING SENOIOR DESIGN MASTERPIECE A+ MATERIAL FUCK YOU YIN</p>
+                </div>
+                <div class="w-full lg:w-1/2 lg:pl-24 background-image: url('')">
+                    <!-- IDK WHAT TO PUT HERE? BUT WE COULD DO ANOTHER HALF TO THE MAIN PAGE  -->
+                </div>
+            </div>
+                
+        </section>
+    </main>
+</router-outlet>
+
+
+
+

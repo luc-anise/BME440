@@ -106,7 +106,13 @@
         },
         "deploy": {
           "builder": "@angular/fire:deploy",
-          "options": {}
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "BME440:build:production",
+            "firebaseProject": "lvad-eaf7c",
+            "firebaseHostingSite": "lvad-eaf7c"
+          }
         }
       }
     }

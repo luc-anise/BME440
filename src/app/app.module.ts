@@ -14,13 +14,13 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //provideAnalytics(() => getAnalytics()),
+    provideAnalytics(() => getAnalytics()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
   ],
   providers: [
-//    ScreenTrackingService,UserTrackingService
+    ScreenTrackingService,UserTrackingService
   ],
   bootstrap: [AppComponent]
 })

@@ -5,6 +5,7 @@ import {
   Auth,
   AuthError,
 } from '@angular/fire/auth';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,18 @@ import {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router, private auth: Auth) {}
+  loginForm: FormGroup;
+
+  constructor(
+    private router: Router,
+    private auth: Auth,
+    private fb: FormBuilder
+  ) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.email, Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+    });
+  }
 
   ngOnInit(): void {}
 
@@ -20,8 +32,8 @@ export class LoginComponent implements OnInit {
     try {
       await signInWithEmailAndPassword(
         this.auth,
-        'luc.anis@stonybrook.edu',
-        'password1'
+        this.loginForm.value.email,
+        this.loginForm.value.password
       );
       console.log('User signed in sucessfully!');
       this.router.navigate(['/', 'dashboard']);

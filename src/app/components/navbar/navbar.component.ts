@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     user(this.auth).subscribe((user) => {
-      // Sets userSignedIn to true if the user object exits
+      // Sets userSignedIn to true if the user object exits otherwise sets it to false
       user ? (this.userSignedIn = true) : (this.userSignedIn = false);
     });
   }
@@ -21,6 +21,9 @@ export class NavbarComponent implements OnInit {
   async signOut() {
     try {
       await signOut(this.auth);
-    } catch (error) {}
+      this.router.navigate(['/']);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

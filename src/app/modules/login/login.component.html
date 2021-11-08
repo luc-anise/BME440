@@ -1,5 +1,8 @@
 <main class="w-full h-auto flex align-middle items-center justify-center mt-28">
-  <div class="m-2 w-full md:m-0 sm:w-1/2 md:w-1/3 lg:w-1/4 shadow rounded p-4">
+  <div
+    class="m-2 w-full md:m-0 sm:w-1/2 md:w-1/3 lg:w-1/4 shadow rounded p-4"
+    [formGroup]="loginForm"
+  >
     <h3 class="w-full text-center text-2xl font-bold">ED-DA</h3>
     <h3 class="w-full text-center text-lg mb-4">Login</h3>
     <div class="mb-4">
@@ -16,6 +19,11 @@
           w-full
         "
         placeholder="Enter Email"
+        formControlName="email"
+        [ngClass]="{
+          'border-red-500':
+            loginForm.get('email')?.invalid && loginForm.get('email')?.dirty
+        }"
         required
       />
     </div>
@@ -33,16 +41,22 @@
           w-full
         "
         placeholder="Enter Password"
+        formControlName="password"
+        [ngClass]="{
+          'border-red-500':
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.dirty
+        }"
         required
       />
-      <a
-        class="text-sm text-gray-400 mt-2"
-        [routerLink]="['/forgotpassword']"
+      <a class="text-sm text-gray-400 mt-2" [routerLink]="['/forgotpassword']"
         >Forgot Password?</a
       >
     </div>
     <button
-      class="w-full text0-center py-2 text-white bg-blue-500 rounded-md"
+      class="w-full text0-center py-2 text-white bg-blue-500 rounded-md transition-colors"
+      [disabled]="loginForm.invalid"
+      [ngClass]="{ 'bg-blue-300 cursor-not-allowed': loginForm.invalid && loginForm.dirty}"
       (click)="signIn()"
     >
       Login

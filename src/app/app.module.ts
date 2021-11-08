@@ -19,7 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     provideAnalytics(() => getAnalytics()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth()),
+    provideAuth(() => getAuth())
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

@@ -1,6 +1,7 @@
 <main class="w-full h-auto flex align-middle items-center justify-center mt-28">
   <div class="m-2 w-full md:m-0 sm:w-1/2 md:w-1/3 lg:w-1/4 shadow rounded p-4">
-    <h3 class="w-full text-center text-2xl">Login</h3>
+    <h3 class="w-full text-center text-2xl font-bold">ED-DA</h3>
+    <h3 class="w-full text-center text-lg mb-4">Login</h3>
     <div class="mb-4">
       <label for="email" class="mb-3 block text-gray-700">Email address:</label>
       <input
@@ -34,11 +35,16 @@
         placeholder="Enter Password"
         required
       />
-      <a class="text-sm text-gray-400 mt-2" [routerLink]="['/forgotpassword']"
+      <a
+        class="text-sm text-gray-400 mt-2"
+        [routerLink]="['/forgotpassword']"
         >Forgot Password?</a
       >
     </div>
-    <button class="w-full text0-center py-2 text-white bg-blue-500 rounded-md">
+    <button
+      class="w-full text0-center py-2 text-white bg-blue-500 rounded-md"
+      (click)="signIn()"
+    >
       Login
     </button>
   </div>

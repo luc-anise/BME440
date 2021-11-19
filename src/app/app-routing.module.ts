@@ -20,6 +20,7 @@ const routes: Routes = [
       ),
   },
   { path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
+  { path: 'simulation', loadChildren: () => import('./modules/simulation/simulation.module').then(m => m.SimulationModule) },
 ];
 
 @NgModule({

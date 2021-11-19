@@ -1,0 +1,4 @@
+interface Case {
+    name: string;
+    
+}

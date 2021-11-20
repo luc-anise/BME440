@@ -8,7 +8,7 @@ import { SimulationComponent } from './simulation.component';
 @NgModule({
   declarations: [
     SimulationComponent
-  ],
+  ],  
   imports: [
     CommonModule,
     SimulationRoutingModule

@@ -1,14 +1,15 @@
 <header>
-    <nav class="flex items-center justify-between px-6 container mx-auto bg-blue-300">
+    <nav class="flex items-center justify-between px-6 container mx-auto">
       <a>
         <img class="h-20 w-auto" src="../../../assets/ED.svg" alt="" />
       </a>
-      <!--different menu sections, these are just the random ones I came up with can be changed-->
+      
       <div class="text-lg text-gray-600 hidden lg:flex">
-        <a
-          class="block lg:inline-block hover:text-gray-700 lg:mt-0 mr-10"
-        >
-          Home
+        <a class="block lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
+          <button [routerLink]="['/']">
+            Home
+          </button>
+         
         </a>
         <a class="block lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
           <button [routerLink]="['/dashboard']">Dashboard</button>
@@ -17,7 +18,10 @@
            Report <!-- will fiddle around with the name for this - but essentially report of previous attempts-->
         </a>
         <a class="block hover:text-gray-700 lg:inline-block lg:mt-0 mr-10">
-           About Us
+          <button [routerLink]="['/about']">
+            About Us
+          </button>
+          
         </a>
       </div>
       <!-- sign in sign up -> they do clicky but don't bring you anywhere I was too lazy to figure that out-->
@@ -33,7 +37,7 @@
             [routerLink]="['/signup']"
             class="py-2 px-6 hover:text-gray-700 text-gray-600 text-lg"
           >
-            Create An Account
+            Create Account
           </button>
         </div>
       </div>

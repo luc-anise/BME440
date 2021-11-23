@@ -1,24 +1,15 @@
-<div class="container h-36 overflow-x-hidden overflow-y-scroll mx-auto mt-6 p-3 rounded-lg border-2 border-gray-500">
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
-  <p>feedback works!</p>
+<div
+  class="
+    container
+    h-36
+    overflow-x-hidden overflow-y-scroll
+    mx-auto
+    mt-6
+    p-3
+    rounded-lg
+    border-2 border-gray-500
+  "
+  (click)="caseService.addFeedback('Test!')"
+>
+  <p *ngFor="let s of caseService.feedback">{{ s }}</p>
 </div>

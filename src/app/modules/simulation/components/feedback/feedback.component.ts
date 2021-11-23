@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CaseService } from 'src/app/services/case.service';
 
 @Component({
   selector: 'app-feedback',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  constructor() { }
+  constructor(public caseService: CaseService) { }
 
   ngOnInit(): void {
+    this.caseService.addFeedback('Test Feedback')
   }
 
 }

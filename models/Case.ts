@@ -1,14 +1,173 @@
-
-interface Case {
-    name: string;
-    vitals: Vitals;
+export interface Case {
+  name: string;
+  details: string;
+  givenInformation: string;
+  vitals: Vitals;
+  controller: Controller;
+  lvadTeam: LVADTeam;
+  //Labs: Labs; -- Not using this yet
 }
 
 interface Vitals {
-    bloodPressure: BloodPressure;
-    doppler: string;
+  bloodPressure: BloodPressure;
+  heartRate: CasePossibility;
+  temperature: CasePossibility;
+  pulseOximeter: CasePossibility;
+  Respirations: CasePossibility;
+}
+interface Controller {
+  display: {
+    parameters: CasePossibility;
+    arrowCheck: CasePossibility;
+  };
+  listenForHum: CasePossibility;
+  pump: {
+    isOn: {
+      haveLVADTeamReplaceController: CasePossibility;
+      replaceControllerYourself: CasePossibility;
+    };
+    isOff: {
+      haveLVADTeamReplaceController: CasePossibility;
+      replaceControllerYourself: CasePossibility;
+    };
+  };
+}
+interface LVADTeam {
+  callCoordinator: CasePossibility;
+}
+interface BloodPressure {
+  NIBPcuff: CasePossibility;
+  doppler: CasePossibility;
 }
 
-interface BloodPressure {
-    NIBPcuff: string;
+interface Labs {
+  CBC: CasePossibility;
 }
+interface CasePossibility {
+  details: string;
+  feedback: string;
+  checkedByUser?: boolean;
+  requiredToCheck: boolean;
+  criticalFailure: boolean;
+  resolvesSimulation: boolean;
+}
+
+export let Case1: Case = {
+  name: 'Case 1',
+  details: 'SYSTEM CONTROLLER FAULT ALARM',
+  givenInformation: 'Pt presents to ER after jumping in pool to save son',
+  controller: {
+    display: {
+      parameters: {
+        details: 'Parameters',
+        feedback: 'Normal Operations',
+        requiredToCheck: false,
+        criticalFailure: false,
+        resolvesSimulation: false,
+      },
+      arrowCheck: {
+        details: 'Arrow check',
+        feedback: 'Arrows ON',
+        requiredToCheck: false,
+        criticalFailure: false,
+        resolvesSimulation: false,
+      },
+    },
+    listenForHum: {
+      details: 'Listen for hum',
+      feedback: 'There is an audible hum',
+      requiredToCheck: false,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
+    pump: {
+      isOn: {
+        haveLVADTeamReplaceController: {
+          details: 'Have VAD team replace controller',
+          feedback: '',
+          requiredToCheck: false,
+          criticalFailure: false,
+          resolvesSimulation: false,
+        },
+        replaceControllerYourself: {
+          details: 'Replace controller yourself immediately',
+          feedback: '',
+          requiredToCheck: false,
+          criticalFailure: true,
+          resolvesSimulation: false,
+        },
+      },
+      isOff: {
+        haveLVADTeamReplaceController: {
+          details: 'Have VAD team replace controller',
+          feedback: '',
+          requiredToCheck: false,
+          criticalFailure: true,
+          resolvesSimulation: false,
+        },
+        replaceControllerYourself: {
+          details: 'Replace controller yourself immediately',
+          feedback: '',
+          requiredToCheck: false,
+          criticalFailure: true,
+          resolvesSimulation: false,
+        },
+      },
+    },
+  },
+  vitals: {
+    bloodPressure: {
+      NIBPcuff: {
+        details: 'NIBP cuff',
+        feedback: 'Bad reading',
+        requiredToCheck: true,
+        criticalFailure: false,
+        resolvesSimulation: false,
+      },
+      doppler: {
+        details: 'Doppler’',
+        feedback: 'Blood pressure within normal range',
+        requiredToCheck: true,
+        criticalFailure: false,
+        resolvesSimulation: false,
+      },
+    },
+    heartRate: {
+      details: 'Heart Rate',
+      feedback: 'there is no measurable heart rate',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
+    temperature: {
+      details: 'Temperature’',
+      feedback: 'temperature is within normal range',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
+    pulseOximeter: {
+      details: 'Pulse Oximeter',
+      feedback: 'O2 is within normal range',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
+    Respirations: {
+      details: 'Respirations',
+      feedback: 'Respiration rate is within normal range',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
+  },
+  lvadTeam: {
+    callCoordinator: {
+      details: 'Call the LVAD Coordinator',
+      feedback: 'VAD Team has been called',
+      requiredToCheck: false,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
+  },
+};

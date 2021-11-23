@@ -1,21 +1,69 @@
-
-<main class="mt-12 lg:mt-20">
-    <app-case-details></app-case-details>
-    <section class="container mx-auto px-6" >
-      <div class="w-full pt-20 lg:flex">
-        <div class="w-full shadow-2xl py-5 lg:w-1/4 mr-3 text-center rounded-lg text-white bg-blue-700">
-           Vitals
-        </div>
-        <div class="w-full shadow-2xl py-5 lg:w-1/4 mx-3 text-center rounded-lg text-white bg-blue-700">
-            Device Controller
-          </div>
-          <div class="w-full shadow-2xl py-5 mx-3 lg:w-1/4 text-center rounded-lg text-white bg-blue-700">
-            LVAD Coordinators
-          </div>
-        <div class="w-full shadow-2xl py-5 lg:w-1/4 ml-3 text-center rounded-lg text-white bg-blue-700"> 
-          Labs
-        </div>
+<main *ngIf="currentCase" class="mt-12 lg:mt-20">
+  <app-case-details [case]="currentCase"></app-case-details>
+  <section class="container mx-auto px-6">
+    <div class="w-full pt-20 lg:flex">
+      <div
+        class="
+          w-full
+          shadow-2xl
+          py-5
+          lg:w-1/4
+          mr-3
+          text-center
+          rounded-lg
+          text-white
+          bg-blue-700
+        "
+      >
+        Vitals
       </div>
-    </section>
-    <app-feedback></app-feedback>
-  </main>
+      <div
+        class="
+          w-full
+          shadow-2xl
+          py-5
+          lg:w-1/4
+          mx-3
+          text-center
+          rounded-lg
+          text-white
+          bg-blue-700
+        "
+      >
+        Device Controller
+      </div>
+      <div
+        class="
+          w-full
+          shadow-2xl
+          py-5
+          mx-3
+          lg:w-1/4
+          text-center
+          rounded-lg
+          text-white
+          bg-blue-700
+        "
+      >
+        LVAD Coordinators
+      </div>
+      <div
+        class="
+          w-full
+          shadow-2xl
+          py-5
+          lg:w-1/4
+          ml-3
+          text-center
+          rounded-lg
+          text-white
+          bg-blue-700
+        "
+      >
+        Labs
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </section>
+  <app-feedback></app-feedback>
+</main>

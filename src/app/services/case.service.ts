@@ -1,11 +1,25 @@
 import { Injectable } from '@angular/core';
-
+import { Case1 } from 'models/Case';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CaseService {
+  feedback: string[] = [];
 
-  feedBack!: [string];
+  constructor() {}
 
-  constructor() { }
+  startSimulation() {
+    this.feedback = [];
+  }
+
+  addFeedback(feedback: string) {
+    this.feedback.unshift(feedback);
+  }
+
+  getCaseById(id: string){
+    let promise = new Promise((res, rej)=>{
+      res(Case1)
+    })
+    return promise;
+  }
 }

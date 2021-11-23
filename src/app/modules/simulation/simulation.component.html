@@ -3,6 +3,8 @@
   <section class="container mx-auto px-6">
     <div class="w-full pt-20 lg:flex">
       <div
+        [routerLink]="['/simulation', caseID, 'vitals']"
+        routerLinkActive="border-4 border-gray-400"
         class="
           w-full
           shadow-2xl
@@ -13,11 +15,14 @@
           rounded-lg
           text-white
           bg-blue-700
+          cursor-pointer
         "
       >
         Vitals
       </div>
       <div
+        [routerLink]="['/simulation', caseID, 'controller']"
+        routerLinkActive="border-4 border-gray-400"
         class="
           w-full
           shadow-2xl
@@ -28,11 +33,14 @@
           rounded-lg
           text-white
           bg-blue-700
+          cursor-pointer
         "
       >
         Device Controller
       </div>
       <div
+        [routerLink]="['/simulation', caseID, 'lvadTeam']"
+        routerLinkActive="border-4 border-gray-400"
         class="
           w-full
           shadow-2xl
@@ -43,6 +51,7 @@
           rounded-lg
           text-white
           bg-blue-700
+          cursor-pointer
         "
       >
         LVAD Coordinators
@@ -58,6 +67,7 @@
           rounded-lg
           text-white
           bg-blue-700
+          cursor-not-allowed
         "
       >
         Labs

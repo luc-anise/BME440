@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { SimulationRoutingModule } from './simulation-routing.module';
 import { SimulationComponent } from './simulation.component';
+import { CaseDetailsComponent } from './components/case-details/case-details.component';
 
 
 @NgModule({
   declarations: [
-    SimulationComponent
+    SimulationComponent,
+    CaseDetailsComponent
   ],  
   imports: [
     CommonModule,

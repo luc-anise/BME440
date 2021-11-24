@@ -30,5 +30,8 @@ export class CaseService {
 
   handleCasePossiblity(cp: CasePossibility) {
     this.addFeedback(cp.feedback);
+    if(cp.criticalFailure){
+      this.addFeedback("Case Failed!")
+    }
   }
 }

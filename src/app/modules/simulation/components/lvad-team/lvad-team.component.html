@@ -1,1 +1,27 @@
-<p>lvad-team works!</p>
+<div
+  *ngIf="caseService.currentCase?.lvadTeam?.callCoordinator"
+  class="w-full mt-5 text-center flex"
+>
+  <button
+    (click)="
+      caseService.handleCasePossiblity(
+        caseService.currentCase!.lvadTeam.callCoordinator
+      )
+    "
+    routerLinkActive="border-4 border-gray-400"
+    class="
+      w-full
+      shadow-2xl
+      py-5
+      lg:w-1/4
+      mr-3
+      text-center
+      rounded-lg
+      text-white
+      bg-blue-700
+      cursor-pointer
+    "
+  >
+    {{ caseService.currentCase!.lvadTeam.callCoordinator.details }}
+  </button>
+</div>

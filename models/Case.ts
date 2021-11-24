@@ -17,7 +17,7 @@ interface Vitals {
   pulseOximeter: CasePossibility;
   Respirations: CasePossibility;
 }
-interface Controller {
+export interface Controller {
   display: {
     parameters: CasePossibility;
     arrowCheck: CasePossibility;
@@ -94,7 +94,7 @@ export let Case1: Case = {
         },
         replaceControllerYourself: {
           details: 'Replace controller yourself immediately',
-          feedback: '',
+          feedback: 'Dead',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
@@ -110,7 +110,7 @@ export let Case1: Case = {
         },
         replaceControllerYourself: {
           details: 'Replace controller yourself immediately',
-          feedback: '',
+          feedback: 'Dead',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,

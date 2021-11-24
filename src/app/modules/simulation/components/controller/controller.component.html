@@ -1,1 +1,135 @@
-<p>controller works!</p>
+<div *ngIf="controller" class="w-full mt-5 text-center flex">
+  <div class="w-1/4 flex flex-col p-4">
+    <button
+      (click)="caseService.handleCasePossiblity(controller.display.parameters)"
+      routerLinkActive="border-4 border-gray-400"
+      class="
+        w-full
+        shadow-2xl
+        py-5
+        mr-3
+        text-center
+        rounded-lg
+        text-white
+        bg-blue-700
+        cursor-pointer
+      "
+    >
+      {{ controller.display.parameters.details }}
+    </button>
+
+    <button
+      (click)="caseService.handleCasePossiblity(controller.display.arrowCheck)"
+      routerLinkActive="border-4 border-gray-400"
+      class="
+        w-full
+        shadow-2xl
+        py-5
+        mr-3
+        text-center
+        rounded-lg
+        text-white
+        bg-blue-700
+        cursor-pointer
+        mt-2
+      "
+    >
+      {{ controller.display.arrowCheck.details }}
+    </button>
+  </div>
+  <div class="w-1/4 flex flex-col p-4">
+    <button
+      (click)="caseService.handleCasePossiblity(controller.listenForHum)"
+      routerLinkActive="border-4 border-gray-400"
+      class="
+        w-full
+        shadow-2xl
+        py-5
+        mr-3
+        text-center
+        rounded-lg
+        text-white
+        bg-blue-700
+        cursor-pointer
+      "
+    >
+      {{ controller.listenForHum.details }}
+    </button>
+  </div>
+  <div class="w-1/4 flex flex-col p-4">
+    <button
+      (click)="caseService.handleCasePossiblity(controller.pump.isOn.haveLVADTeamReplaceController)"
+      routerLinkActive="border-4 border-gray-400"
+      class="
+        w-full
+        shadow-2xl
+        py-5
+        mr-3
+        text-center
+        rounded-lg
+        text-white
+        bg-blue-700
+        cursor-pointer
+      "
+    >
+      {{ controller.pump.isOn.haveLVADTeamReplaceController.details }}
+    </button>
+
+    <button
+      (click)="caseService.handleCasePossiblity(controller.pump.isOn.replaceControllerYourself)"
+      routerLinkActive="border-4 border-gray-400"
+      class="
+        w-full
+        shadow-2xl
+        py-5
+        mr-3
+        text-center
+        rounded-lg
+        text-white
+        bg-blue-700
+        cursor-pointer
+        mt-2
+      "
+    >
+      {{ controller.pump.isOn.replaceControllerYourself.details }}
+    </button>
+  </div>
+  <div class="w-1/4 flex flex-col p-4">
+    <button
+    (click)="caseService.handleCasePossiblity(controller.pump.isOff.haveLVADTeamReplaceController)"
+    routerLinkActive="border-4 border-gray-400"
+    class="
+      w-full
+      shadow-2xl
+      py-5
+      mr-3
+      text-center
+      rounded-lg
+      text-white
+      bg-blue-700
+      cursor-pointer
+    "
+  >
+    {{ controller.pump.isOff.haveLVADTeamReplaceController.details }}
+  </button>
+
+  <button
+    (click)="caseService.handleCasePossiblity(controller.pump.isOff.replaceControllerYourself)"
+    routerLinkActive="border-4 border-gray-400"
+    class="
+      w-full
+      shadow-2xl
+      py-5
+      mr-3
+      text-center
+      rounded-lg
+      text-white
+      bg-blue-700
+      cursor-pointer
+      mt-2
+    "
+  >
+    {{ controller.pump.isOff.replaceControllerYourself.details }}
+  </button>
+  </div>
+</div>

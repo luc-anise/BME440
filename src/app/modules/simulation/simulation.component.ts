@@ -27,6 +27,7 @@ export class SimulationComponent implements OnInit {
       this.caseID = parms['id'];
       try {
         this.currentCase = await this.caseService.getCaseById(this.caseID);
+        this.caseService.setCurrentCase(this.currentCase)
         console.log(this.currentCase);
       } catch (error) {
         console.error(error);

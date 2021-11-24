@@ -2,14 +2,16 @@ export interface Case {
   name: string;
   details: string;
   givenInformation: string;
-  vitals: Vitals;
+  vitals: CasePossibility[];
   controller: Controller;
   lvadTeam: LVADTeam;
   //Labs: Labs; -- Not using this yet
 }
 
 interface Vitals {
-  bloodPressure: BloodPressure;
+  //bloodPressure: BloodPressure;
+  NIBPcuff: CasePossibility;
+  doppler: CasePossibility;
   heartRate: CasePossibility;
   temperature: CasePossibility;
   pulseOximeter: CasePossibility;
@@ -43,7 +45,7 @@ interface BloodPressure {
 interface Labs {
   CBC: CasePossibility;
 }
-interface CasePossibility {
+export interface CasePossibility {
   details: string;
   feedback: string;
   checkedByUser?: boolean;
@@ -116,52 +118,50 @@ export let Case1: Case = {
       },
     },
   },
-  vitals: {
-    bloodPressure: {
-      NIBPcuff: {
-        details: 'NIBP cuff',
-        feedback: 'Bad reading',
-        requiredToCheck: true,
-        criticalFailure: false,
-        resolvesSimulation: false,
-      },
-      doppler: {
-        details: 'Doppler’',
-        feedback: 'Blood pressure within normal range',
-        requiredToCheck: true,
-        criticalFailure: false,
-        resolvesSimulation: false,
-      },
+  vitals: [
+    {
+      details: 'NIBP cuff',
+      feedback: 'Bad reading',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
     },
-    heartRate: {
+    {
+      details: 'Doppler',
+      feedback: 'Blood pressure within normal range',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
+    {
       details: 'Heart Rate',
       feedback: 'there is no measurable heart rate',
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
     },
-    temperature: {
+    {
       details: 'Temperature’',
       feedback: 'temperature is within normal range',
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
     },
-    pulseOximeter: {
+    {
       details: 'Pulse Oximeter',
       feedback: 'O2 is within normal range',
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
     },
-    Respirations: {
+    {
       details: 'Respirations',
       feedback: 'Respiration rate is within normal range',
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
     },
-  },
+  ],
   lvadTeam: {
     callCoordinator: {
       details: 'Call the LVAD Coordinator',

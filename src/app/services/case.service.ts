@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Case, Case1 } from 'models/Case';
+import { Case, Case1, CasePossibility } from 'models/Case';
 @Injectable({
   providedIn: 'root',
 })
 export class CaseService {
   feedback: string[] = [];
+  currentCase?: Case;
 
   constructor() {}
 
@@ -21,5 +22,13 @@ export class CaseService {
       res(Case1);
     });
     return promise;
+  }
+
+  setCurrentCase(c: Case) {
+    this.currentCase = c;
+  }
+
+  handleCasePossiblity(cp: CasePossibility) {
+    this.addFeedback(cp.feedback);
   }
 }

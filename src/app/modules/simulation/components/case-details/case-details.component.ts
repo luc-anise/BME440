@@ -8,7 +8,6 @@ import { Case } from 'models/Case';
 })
 export class CaseDetailsComponent implements OnInit {
   @Input() case?: Case;
-  history = ["Case History: LVAD patient DH (58YO male) was presented to the Emergency Department after he jumped in the pool to save his son who he thought was drowning","test","yee"]
 
   constructor() { }
 

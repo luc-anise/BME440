@@ -141,7 +141,7 @@ export let Case1: Case = {
       resolvesSimulation: false,
     },
     {
-      details: 'Temperature’',
+      details: 'Temperature',
       feedback: 'temperature is within normal range',
       requiredToCheck: true,
       criticalFailure: false,

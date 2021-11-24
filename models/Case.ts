@@ -86,14 +86,14 @@ export let Case1: Case = {
     pump: {
       isOn: {
         haveLVADTeamReplaceController: {
-          details: 'Have VAD team replace controller',
+          details: 'Pump is on: Have VAD team replace controller',
           feedback: '',
           requiredToCheck: false,
           criticalFailure: false,
           resolvesSimulation: false,
         },
         replaceControllerYourself: {
-          details: 'Replace controller yourself immediately',
+          details: 'Pump is on: Replace controller yourself immediately',
           feedback: 'Dead',
           requiredToCheck: false,
           criticalFailure: true,
@@ -102,14 +102,14 @@ export let Case1: Case = {
       },
       isOff: {
         haveLVADTeamReplaceController: {
-          details: 'Have VAD team replace controller',
+          details: 'Pump is off: Have VAD team replace controller',
           feedback: '',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
         },
         replaceControllerYourself: {
-          details: 'Replace controller yourself immediately',
+          details: 'Pump is off: Replace controller yourself immediately',
           feedback: 'Dead',
           requiredToCheck: false,
           criticalFailure: true,

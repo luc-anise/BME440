@@ -19,8 +19,25 @@ const routes: Routes = [
         (m) => m.HomepageModule
       ),
   },
-  { path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
-  { path: 'simulation', loadChildren: () => import('./modules/simulation/simulation.module').then(m => m.SimulationModule) },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./modules/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+  },
+  {
+    path: 'simulation',
+    loadChildren: () =>
+      import('./modules/simulation/simulation.module').then(
+        (m) => m.SimulationModule
+      ),
+  },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./modules/about/about.module').then((m) => m.AboutModule),
+  },
 ];
 
 @NgModule({

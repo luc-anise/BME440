@@ -7,6 +7,7 @@ export class CaseService {
   feedback: string[] = [];
   currentCase?: Case;
   clickedPossibilities: CasePossibility[] = [];
+  clickedPossibilitiesIds: String[] = [];
   currentSimulation = {
     failed: false,
     complete: false,

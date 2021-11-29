@@ -1,15 +1,28 @@
-<div class = "text-center mx-16">
-    Thank you for supporting the Emergency Department Device Assistant (EDDA). This website was developed by Biomedical Engineering undergraduate students at Stony Brook University for their senior design project for the 2021-2022 academic year:
-</div>
+<main class = "overflow-y-scroll">
+    <div class =  "mx-auto py-6 h-1/4">
+        <!-- to be determined-->
+    </div>
+    <div class = "h-3/4 mx-auto">
+        <div class = "text-center mx-16 mb-3">
+        Thank you for supporting the Emergency Department Device Assistant (EDDA). This website was developed by Biomedical Engineering undergraduate students at Stony Brook University for their senior design project for the 2021-2022 academic year:
+        </div>
 
-<div *ngFor="let name of names" class = text-center>
-    {{name}} 
-</div>
-<div class = "text-center">
+        <div *ngFor="let name of names" class = "text-center mb-3">
+            {{name}} 
+        </div>
+        <div class = "text-center mx-16 mt-3 mb-3">
+        This project would not have been possible without the assistance of four fantastic medial students at Stony Brook Medicine.  They were incredibly helpful in providing us with support on the medical side of things where our education stopped. Thanks so much to:
+        </div>
+        <div *ngFor="let msname of msnames" class = "text-center mb-3">
+            {{msname}} 
+        </div>
+        <div class = "text-center mx-16 mt-3">
+        We would also like to give a special thanks to Dr. Lauren Maloney, M.D., an attending physician in the Emergency Department at Stony Brook Hospital.  She was key in inspiring the project and giving us feedback as we progressed through this project. 
+        </div>
+        <div class = "text-center mx-16 mt-3">
+        Lastly, we would like to thank the Stony Brook University Biomedical Engineering Department, especially Dr. Helmut Strey, Ph.D.,  for giving us the opportunity and resources to develop this software in hopes of enhancing the learning environment for students with medical emergency interests.
+        </div>
+    </div>
 
-</div>
-<div class = "text-center">
+</main>
 
-</div>
-
-<p>about works!</p>

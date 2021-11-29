@@ -18,7 +18,7 @@ export class SimulationComponent implements OnInit {
   ];
 
   constructor(
-    private caseService: CaseService,
+    public caseService: CaseService,
     private activeRoute: ActivatedRoute
   ) {}
 

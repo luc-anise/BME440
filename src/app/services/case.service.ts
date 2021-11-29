@@ -9,12 +9,15 @@ export class CaseService {
   clickedPossibilities: CasePossibility[] = [];
   currentSimulation = {
     failed: false,
+    complete: false,
   };
 
   constructor() {}
 
   startSimulation() {
     this.feedback = [];
+    this.clickedPossibilities = [];
+    this.currentSimulation = { failed: false, complete: false };
   }
 
   addFeedback(feedback: string) {

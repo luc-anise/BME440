@@ -52,7 +52,7 @@ export interface CasePossibility {
   checkedByUser?: boolean;
   requiredToCheck: boolean;
   criticalFailure: boolean;
-  resolvesSimulation: boolean;  
+  resolvesSimulation: boolean;
 }
 
 export let Case1: Case = {
@@ -188,4 +188,16 @@ export let Case1: Case = {
   },
 };
 
-export let key: string[] = ['callLVADCoordinator', 'parameters'];
+export let key: string[] = [
+  'callLVADCoordinator',
+  'parameters',
+  'arrowCheck',
+  'listenForHum',
+  'pumpOnVADReplace',
+  'NIBPCuff',
+  'doppler',
+  'heartRate',
+  'temperature',
+  'pulseOximeter',
+  'respirations'
+];

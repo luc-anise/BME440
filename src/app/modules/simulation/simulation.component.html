@@ -89,5 +89,9 @@
       Please see feedback below.
     </h3>
   </section>
+  <section
+    *ngIf="caseService.currentSimulation.complete"
+    class="container mx-auto px-6"
+  ></section>
   <app-feedback></app-feedback>
 </main>

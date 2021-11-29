@@ -9,8 +9,6 @@
     rounded-lg
     border-2 border-gray-500
   "
-  (click)="caseService.addFeedback('Test!')"
 >
-  <p *ngFor="let s of caseService.feedback">{{ s }}</p>
- 
+  <p *ngFor="let feedback of caseService.feedback">{{ feedback }}</p>
 </div>

@@ -11,14 +11,9 @@ import { CaseService } from 'src/app/services/case.service';
 export class SimulationComponent implements OnInit {
   currentCase?: Case;
   caseID = '';
-  history = [
-    'Case History: LVAD patient DH (58YO male) was presented to the Emergency Department after he jumped in the pool to save his son who he thought was drowning',
-    'test',
-    'yee',
-  ];
-
+  
   constructor(
-    private caseService: CaseService,
+    public caseService: CaseService,
     private activeRoute: ActivatedRoute
   ) {}
 

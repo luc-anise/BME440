@@ -46,6 +46,7 @@ interface Labs {
   CBC: CasePossibility;
 }
 export interface CasePossibility {
+  id: string;
   details: string;
   feedback: string;
   checkedByUser?: boolean;
@@ -63,12 +64,14 @@ export let Case1: Case = {
     display: {
       parameters: {
         details: 'Parameters',
+        id: 'parameters',
         feedback: 'Normal Operations',
         requiredToCheck: false,
         criticalFailure: false,
         resolvesSimulation: false,
       },
       arrowCheck: {
+        id: 'arrowCheck',
         details: 'Arrow check',
         feedback: 'Arrows ON',
         requiredToCheck: false,
@@ -77,6 +80,7 @@ export let Case1: Case = {
       },
     },
     listenForHum: {
+      id: 'listenForHum',
       details: 'Listen for hum',
       feedback: 'There is an audible hum',
       requiredToCheck: false,
@@ -135,12 +139,14 @@ export let Case1: Case = {
     },
     {
       details: 'Heart Rate',
+      id: 'heartRate'
       feedback: 'there is no measurable heart rate',
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
     },
     {
+      id:'temperature',
       details: 'Temperature',
       feedback: 'temperature is within normal range',
       requiredToCheck: true,

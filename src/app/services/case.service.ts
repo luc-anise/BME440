@@ -15,10 +15,11 @@ export class CaseService {
 
   constructor() {}
 
-  startSimulation() {
+  startSimulation(c: Case) {
     this.feedback = [];
     this.clickedPossibilities = [];
     this.currentSimulation = { failed: false, complete: false };
+    this.currentCase = c;
     // TODO: Timer, how long it took user to complete sim
   }
 
@@ -40,7 +41,6 @@ export class CaseService {
   handleCasePossiblity(cp: CasePossibility) {
     this.addFeedback(cp.feedback);
     cp.checkedByUser = true;
-    console.log(this.currentCase);
     this.clickedPossibilities.push(cp);
     this.clickedPossibilitiesIds.push(cp.id);
     if (cp.criticalFailure) {

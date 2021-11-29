@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+   names = ["Luc Annise", "Alexander Eichert", "Shayne Hays", "Sarah Spinelli", "Lydia Sprague"]
   constructor() { }
 
   ngOnInit(): void {

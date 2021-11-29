@@ -90,6 +90,7 @@ export let Case1: Case = {
     pump: {
       isOn: {
         haveLVADTeamReplaceController: {
+          id: 'pumpOnVADReplace',
           details: 'Pump is on: Have VAD team replace controller',
           feedback: '',
           requiredToCheck: false,
@@ -97,6 +98,7 @@ export let Case1: Case = {
           resolvesSimulation: false,
         },
         replaceControllerYourself: {
+          id: 'pumpOnYouReplace',
           details: 'Pump is on: Replace controller yourself immediately',
           feedback: 'Dead',
           requiredToCheck: false,
@@ -106,6 +108,7 @@ export let Case1: Case = {
       },
       isOff: {
         haveLVADTeamReplaceController: {
+          id: 'pumpOffVADReplace',
           details: 'Pump is off: Have VAD team replace controller',
           feedback: '',
           requiredToCheck: false,
@@ -113,6 +116,7 @@ export let Case1: Case = {
           resolvesSimulation: false,
         },
         replaceControllerYourself: {
+          id: 'pumpOffYouReplace',
           details: 'Pump is off: Replace controller yourself immediately',
           feedback: 'Dead',
           requiredToCheck: false,
@@ -124,6 +128,7 @@ export let Case1: Case = {
   },
   vitals: [
     {
+      id: 'NIBPCuff',
       details: 'NIBP cuff',
       feedback: 'Bad reading',
       requiredToCheck: true,
@@ -131,6 +136,7 @@ export let Case1: Case = {
       resolvesSimulation: false,
     },
     {
+      id: 'doppler',
       details: 'Doppler',
       feedback: 'Blood pressure within normal range',
       requiredToCheck: true,
@@ -139,7 +145,7 @@ export let Case1: Case = {
     },
     {
       details: 'Heart Rate',
-      id: 'heartRate'
+      id: 'heartRate',
       feedback: 'there is no measurable heart rate',
       requiredToCheck: true,
       criticalFailure: false,
@@ -154,6 +160,7 @@ export let Case1: Case = {
       resolvesSimulation: false,
     },
     {
+      id: 'pulseOximeter',
       details: 'Pulse Oximeter',
       feedback: 'O2 is within normal range',
       requiredToCheck: true,
@@ -161,6 +168,7 @@ export let Case1: Case = {
       resolvesSimulation: false,
     },
     {
+      id: 'respirations',
       details: 'Respirations',
       feedback: 'Respiration rate is within normal range',
       requiredToCheck: true,
@@ -170,6 +178,7 @@ export let Case1: Case = {
   ],
   lvadTeam: {
     callCoordinator: {
+      id: 'callLVADCoordinator',
       details: 'Call the LVAD Coordinator',
       feedback: 'VAD Team has been called',
       requiredToCheck: false,

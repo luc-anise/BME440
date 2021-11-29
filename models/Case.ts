@@ -52,7 +52,7 @@ export interface CasePossibility {
   checkedByUser?: boolean;
   requiredToCheck: boolean;
   criticalFailure: boolean;
-  resolvesSimulation: boolean;
+  resolvesSimulation: boolean;  
 }
 
 export let Case1: Case = {
@@ -152,7 +152,7 @@ export let Case1: Case = {
       resolvesSimulation: false,
     },
     {
-      id:'temperature',
+      id: 'temperature',
       details: 'Temperature',
       feedback: 'temperature is within normal range',
       requiredToCheck: true,
@@ -181,9 +181,11 @@ export let Case1: Case = {
       id: 'callLVADCoordinator',
       details: 'Call the LVAD Coordinator',
       feedback: 'VAD Team has been called',
-      requiredToCheck: false,
+      requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
     },
   },
 };
+
+export let key: string[] = ['callLVADCoordinator', 'parameters'];

@@ -6,6 +6,10 @@ import { Case, Case1, CasePossibility } from 'models/Case';
 export class CaseService {
   feedback: string[] = [];
   currentCase?: Case;
+  clickedPossibilities: CasePossibility[] = [];
+  currentSimulation = {
+    failed: false,
+  };
 
   constructor() {}
 
@@ -30,8 +34,12 @@ export class CaseService {
 
   handleCasePossiblity(cp: CasePossibility) {
     this.addFeedback(cp.feedback);
-    if(cp.criticalFailure){
-      this.addFeedback("Case Failed!")
+    cp.checkedByUser = true;
+    console.log(this.currentCase);
+    this.clickedPossibilities.push(cp);
+    if (cp.criticalFailure) {
+      this.addFeedback('Case Failed!');
+      this.currentSimulation.failed = true;
     }
   }
 }

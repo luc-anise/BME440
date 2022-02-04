@@ -40,6 +40,7 @@ export class CaseService {
 
   handleCasePossiblity(cp: CasePossibility) {
     this.addFeedback(cp.feedback);
+    // TODO: This does not reset between attemps because it's coming from the model file not a copy of the object
     cp.checkedByUser = true;
     this.clickedPossibilities.push(cp);
 
@@ -87,6 +88,7 @@ export class CaseService {
   }
 
   allVitalsChecked() {
+    
     return Case1.vitals
       .map((cp) => cp.checkedByUser)
       .reduce((prev, curr) => {

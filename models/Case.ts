@@ -194,10 +194,13 @@ export let key: string[] = [
   'arrowCheck',
   'listenForHum',
   'pumpOnVADReplace',
+];
+
+export let keyNoOrder: string[] = [
   'NIBPCuff',
   'doppler',
   'heartRate',
   'temperature',
   'pulseOximeter',
-  'respirations'
+  'respirations',
 ];

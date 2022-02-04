@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Case, Case1, CasePossibility, key } from 'models/Case';
+import { Case, Case1, CasePossibility, key, keyNoOrder } from 'models/Case';
 @Injectable({
   providedIn: 'root',
 })
@@ -42,13 +42,21 @@ export class CaseService {
     this.addFeedback(cp.feedback);
     cp.checkedByUser = true;
     this.clickedPossibilities.push(cp);
-    this.clickedPossibilitiesIds.push(cp.id);
+
+    if (!keyNoOrder.includes(cp.id)) {
+      this.clickedPossibilitiesIds.push(cp.id);
+    }
+
+    // If critical failure, end run
     if (cp.criticalFailure) {
       this.addFeedback('Case Failed!');
       this.currentSimulation.failed = true;
     }
 
-    if (this.clickedPossibilitiesIds.length === key.length) {
+    if (
+      this.clickedPossibilitiesIds.length === key.length &&
+      this.allVitalsChecked()
+    ) {
       try {
         this.clickedPossibilitiesIds.forEach((item, index) => {
           if (key[index] !== item) {
@@ -76,5 +84,16 @@ export class CaseService {
         this.addFeedback('Simulation Complete!');
       }
     }
+  }
+
+  allVitalsChecked() {
+    return Case1.vitals
+      .map((cp) => cp.checkedByUser)
+      .reduce((prev, curr) => {
+        if (!prev || !curr) {
+          return false;
+        }
+        return true;
+      });
   }
 }

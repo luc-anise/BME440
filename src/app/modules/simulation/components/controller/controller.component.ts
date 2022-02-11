@@ -12,7 +12,5 @@ export class ControllerComponent implements OnInit {
 
   constructor(public caseService: CaseService) {}
 
-  ngOnInit(): void {
-    this.controller = this.caseService.currentCase?.controller;
-  }
+  ngOnInit(): void {}
 }

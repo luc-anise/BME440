@@ -1,29 +1,7 @@
-<div
-  *ngIf="caseService.currentCase?.lvadTeam?.callCoordinator"
-  class="w-full mt-5 text-center flex"
->
-  <button
-    (click)="
-      caseService.handleCasePossiblity(caseService.currentCase!.lvadTeam.callCoordinator)
-    "
-    [ngClass]="{'bg-gray-400 hover:bg-gray-400 text-gray-200 hover:animate-none cursor-not-allowed': caseService.currentCase!.lvadTeam.callCoordinator.checkedByUser}"
-    routerLinkActive="border-4 border-gray-400 bg-red-300"
-    class="
-      w-full
-      shadow-2xl
-      py-5
-      lg:w-1/4
-      mx-auto
-      text-center
-      rounded-lg
-      text-white
-      bg-blue-700
-      cursor-pointer
-      hover:bg-blue-500
-      hover:animate-pulse
-      active:bg-red-300
-    "
+<div *ngIf="caseService.currentCase?.lvadTeam" class="w-full mt-5 text-center">
+  <app-case-button
+    *ngFor="let cp of caseService.currentCase?.lvadTeam"
+    [casePosiblity]="cp"
   >
-    {{ caseService.currentCase!.lvadTeam.callCoordinator.details }}
-  </button>
+  </app-case-button>
 </div>

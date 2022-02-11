@@ -8,7 +8,7 @@
         caseService.currentCase!.lvadTeam.callCoordinator
       )
     "
-    routerLinkActive="border-4 border-gray-400"
+    routerLinkActive="border-4 border-gray-400 bg-red-300"
     class="
       w-full
       shadow-2xl
@@ -22,6 +22,7 @@
       cursor-pointer
       hover:bg-blue-500
       hover:animate-pulse
+      active:bg-red-300
     "
   >
     {{ caseService.currentCase!.lvadTeam.callCoordinator.details }}

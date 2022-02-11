@@ -8,6 +8,25 @@ export interface Case {
   //Labs: Labs; -- Not using this yet
 }
 
+export interface newCase {
+  name: string;
+  details: string;
+  givenInformation: string;
+  tree: CasePossibility[]  // --> [Vitals, Controller, LVADTeam, Labs]
+}
+
+export interface CasePossibility {
+  id: string;
+  details: string;
+  feedback: string;
+  checkedByUser?: boolean;
+  requiredToCheck: boolean;
+  criticalFailure: boolean;
+  resolvesSimulation: boolean;
+  subOptions?: CasePossibility[]; 
+}
+
+
 interface Vitals {
   //bloodPressure: BloodPressure;
   NIBPcuff: CasePossibility;
@@ -44,15 +63,6 @@ interface BloodPressure {
 
 interface Labs {
   CBC: CasePossibility;
-}
-export interface CasePossibility {
-  id: string;
-  details: string;
-  feedback: string;
-  checkedByUser?: boolean;
-  requiredToCheck: boolean;
-  criticalFailure: boolean;
-  resolvesSimulation: boolean;
 }
 
 export let Case1: Case = {

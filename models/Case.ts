@@ -3,8 +3,8 @@ export interface Case {
   details: string;
   givenInformation: string;
   vitals: CasePossibility[];
-  controller: Controller;
-  lvadTeam: LVADTeam;
+  controller: CasePossibility[];
+  lvadTeam: CasePossibility[];
   //Labs: Labs; -- Not using this yet
 }
 
@@ -70,9 +70,16 @@ export let Case1: Case = {
   details: 'SYSTEM CONTROLLER FAULT ALARM',
   givenInformation:
     'Case History: LVAD patient DH (58 YO male) was presented to the Emergency Department after he jumped in the pool to save his son who he thought was drowning',
-  controller: {
-    display: {
-      parameters: {
+  controller: [
+    {
+        details: 'Display',
+        id: 'display',
+        feedback: '',
+        requiredToCheck: false,
+        criticalFailure: false,
+        resolvesSimulation: false,
+        subOptions: [
+       {
         details: 'Parameters',
         id: 'parameters',
         feedback: 'Normal Operations',
@@ -80,14 +87,15 @@ export let Case1: Case = {
         criticalFailure: false,
         resolvesSimulation: false,
       },
-      arrowCheck: {
+       {
         id: 'arrowCheck',
         details: 'Arrow check',
         feedback: 'Arrows ON',
         requiredToCheck: false,
         criticalFailure: false,
         resolvesSimulation: false,
-      },
+      }
+    ]
     },
     listenForHum: {
       id: 'listenForHum',
@@ -135,7 +143,7 @@ export let Case1: Case = {
         },
       },
     },
-  },
+  ],
   vitals: [
     {
       id: 'NIBPCuff',

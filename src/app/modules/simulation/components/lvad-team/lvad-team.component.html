@@ -8,6 +8,7 @@
         caseService.currentCase!.lvadTeam.callCoordinator
       )
     "
+    [ngClass]="{'bg-gray-400 hover:bg-gray-400 text-gray-200 hover:animate-none cursor-not-allowed': caseService.currentCase!.lvadTeam.callCoordinator.checkedByUser}"
     routerLinkActive="border-4 border-gray-400 bg-red-300"
     class="
       w-full

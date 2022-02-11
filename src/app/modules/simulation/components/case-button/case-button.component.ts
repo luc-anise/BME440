@@ -17,13 +17,17 @@ export class CaseButtonComponent implements OnInit {
     criticalFailure: false,
     resolvesSimulation: false,
   };
+  @Input() isInModal = false;
+  showModal = false;
 
   constructor(private caseService: CaseService) {}
 
   ngOnInit(): void {}
 
-  buttonClicked(){
-   this.caseService.handleCasePossiblity(this.casePosiblity)
+  buttonClicked() {
+    if (!this.casePosiblity.subOptions) {
+      this.caseService.handleCasePossiblity(this.casePosiblity);
+    }
+    this.showModal = !this.showModal;
   }
-
 }

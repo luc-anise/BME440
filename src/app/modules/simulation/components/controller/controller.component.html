@@ -2,6 +2,7 @@
   <div class="w-1/4 flex flex-col p-4">
     <button
       (click)="caseService.handleCasePossiblity(controller.display.parameters)"
+      [ngClass]="{'bg-gray-400 hover:bg-gray-400 text-gray-200 hover:animate-none cursor-not-allowed': controller.display.parameters.checkedByUser}"
       routerLinkActive="border-4 border-gray-400"
       class="
         w-full
@@ -22,6 +23,7 @@
 
     <button
       (click)="caseService.handleCasePossiblity(controller.display.arrowCheck)"
+      [ngClass]="{'bg-gray-400 hover:bg-gray-400 text-gray-200 hover:animate-none cursor-not-allowed': controller.display.arrowCheck.checkedByUser}"
       routerLinkActive="border-4 border-gray-400"
       class="
         w-full
@@ -44,6 +46,7 @@
   <div class="w-1/4 flex flex-col p-4">
     <button
       (click)="caseService.handleCasePossiblity(controller.listenForHum)"
+      [ngClass]="{'bg-gray-400 hover:bg-gray-400 text-gray-200 hover:animate-none cursor-not-allowed': controller.listenForHum.checkedByUser}"
       routerLinkActive="border-4 border-gray-400"
       class="
         w-full
@@ -65,6 +68,7 @@
   <div class="w-1/4 flex flex-col p-4">
     <button
       (click)="caseService.handleCasePossiblity(controller.pump.isOn.haveLVADTeamReplaceController)"
+      [ngClass]="{'bg-gray-400 hover:bg-gray-400 text-gray-200 hover:animate-none cursor-not-allowed': controller.pump.isOn.haveLVADTeamReplaceController.checkedByUser}"
       routerLinkActive="border-4 border-gray-400"
       class="
         w-full
@@ -85,6 +89,7 @@
 
     <button
       (click)="caseService.handleCasePossiblity(controller.pump.isOn.replaceControllerYourself)"
+      [ngClass]="{'bg-gray-400 hover:bg-gray-400 text-gray-200 hover:animate-none cursor-not-allowed': controller.pump.isOn.replaceControllerYourself.checkedByUser}"
       routerLinkActive="border-4 border-gray-400"
       class="
         w-full
@@ -107,6 +112,7 @@
   <div class="w-1/4 flex flex-col p-4">
     <button
     (click)="caseService.handleCasePossiblity(controller.pump.isOff.haveLVADTeamReplaceController)"
+    [ngClass]="{'bg-gray-400 hover:bg-gray-400 text-gray-200 hover:animate-none cursor-not-allowed': controller.pump.isOff.haveLVADTeamReplaceController.checkedByUser}"
     routerLinkActive="border-4 border-gray-400"
     class="
       w-full
@@ -127,6 +133,7 @@
 
   <button
     (click)="caseService.handleCasePossiblity(controller.pump.isOff.replaceControllerYourself)"
+    [ngClass]="{'bg-gray-400 hover:bg-gray-400 text-gray-200 hover:animate-none cursor-not-allowed': controller.pump.isOff.replaceControllerYourself.checkedByUser}"
     routerLinkActive="border-4 border-gray-400"
     class="
       w-full

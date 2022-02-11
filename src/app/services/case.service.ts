@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Case, Case1, CasePossibility, key, keyNoOrder } from 'models/Case';
+import {
+  Case,
+  Case1,
+  Case2,
+  CasePossibility,
+  key,
+  keyNoOrder,
+} from 'models/Case';
 @Injectable({
   providedIn: 'root',
 })
@@ -29,7 +36,16 @@ export class CaseService {
 
   getCaseById(id: string): Promise<Case> {
     let promise = new Promise<Case>((res, rej) => {
-      res(Case1);
+      switch (id.toLowerCase()) {
+        case 'case1':
+          res(Case1);
+          break;
+        case 'case2':
+          res(Case2);
+          break;
+        default:
+          break;
+      }
     });
     return promise;
   }
@@ -88,7 +104,6 @@ export class CaseService {
   }
 
   allVitalsChecked() {
-    
     return Case1.vitals
       .map((cp) => cp.checkedByUser)
       .reduce((prev, curr) => {

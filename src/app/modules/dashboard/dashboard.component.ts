@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  cases = ["Case 1", "Case 2", "Case 3"]
+  cases = ["case1", "case2", "Case 3"]
 
   constructor() { }
 

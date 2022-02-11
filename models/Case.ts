@@ -36,6 +36,7 @@ interface Vitals {
   pulseOximeter: CasePossibility;
   Respirations: CasePossibility;
 }
+
 export interface Controller {
   display: {
     parameters: CasePossibility;
@@ -71,15 +72,7 @@ export let Case1: Case = {
   givenInformation:
     'Case History: LVAD patient DH (58 YO male) was presented to the Emergency Department after he jumped in the pool to save his son who he thought was drowning',
   controller: [
-    {
-        details: 'Display',
-        id: 'display',
-        feedback: '',
-        requiredToCheck: false,
-        criticalFailure: false,
-        resolvesSimulation: false,
-        subOptions: [
-       {
+      {
         details: 'Parameters',
         id: 'parameters',
         feedback: 'Normal Operations',
@@ -87,17 +80,15 @@ export let Case1: Case = {
         criticalFailure: false,
         resolvesSimulation: false,
       },
-       {
+      {
         id: 'arrowCheck',
         details: 'Arrow check',
         feedback: 'Arrows ON',
         requiredToCheck: false,
         criticalFailure: false,
         resolvesSimulation: false,
-      }
-    ]
-    },
-    listenForHum: {
+      },
+    {
       id: 'listenForHum',
       details: 'Listen for hum',
       feedback: 'There is an audible hum',
@@ -105,9 +96,15 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
     },
-    pump: {
-      isOn: {
-        haveLVADTeamReplaceController: {
+    {
+      id: 'pumpIsOn',
+      details: 'pumpIsOn',
+      feedback: '',
+      requiredToCheck: false,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      subOptions: [
+        {
           id: 'pumpOnVADReplace',
           details: 'Pump is on: Have VAD team replace controller',
           feedback: '',
@@ -115,35 +112,44 @@ export let Case1: Case = {
           criticalFailure: false,
           resolvesSimulation: false,
         },
-        replaceControllerYourself: {
+         {
           id: 'pumpOnYouReplace',
           details: 'Pump is on: Replace controller yourself immediately',
           feedback: 'Dead',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-        },
+         },    
+         ]
       },
-      isOff: {
-        haveLVADTeamReplaceController: {
-          id: 'pumpOffVADReplace',
-          details: 'Pump is off: Have VAD team replace controller',
-          feedback: '',
-          requiredToCheck: false,
-          criticalFailure: true,
-          resolvesSimulation: false,
+      {
+      id: 'pumpIsOff',
+      details: 'pumpIsOff',
+      feedback: '',
+      requiredToCheck: false,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      subOptions: [
+             {
+              id: 'pumpOffVADReplace',
+              details: 'Pump is off: Have VAD team replace controller',
+              feedback: '',
+              requiredToCheck: false,
+              criticalFailure: true,
+              resolvesSimulation: false,
+            },
+            {
+              id: 'pumpOffYouReplace',
+              details: 'Pump is off: Replace controller yourself immediately',
+              feedback: 'Dead',
+              requiredToCheck: false,
+              criticalFailure: true,
+              resolvesSimulation: false,
+            },
+          ]
         },
-        replaceControllerYourself: {
-          id: 'pumpOffYouReplace',
-          details: 'Pump is off: Replace controller yourself immediately',
-          feedback: 'Dead',
-          requiredToCheck: false,
-          criticalFailure: true,
-          resolvesSimulation: false,
-        },
-      },
-    },
   ],
+
   vitals: [
     {
       id: 'NIBPCuff',
@@ -194,8 +200,9 @@ export let Case1: Case = {
       resolvesSimulation: false,
     },
   ],
-  lvadTeam: {
-    callCoordinator: {
+
+  lvadTeam: [
+    {
       id: 'callLVADCoordinator',
       details: 'Call the LVAD Coordinator',
       feedback: 'VAD Team has been called',
@@ -203,7 +210,7 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
     },
-  },
+  ],
 };
 
 export let Case2: Case = {
@@ -211,9 +218,8 @@ export let Case2: Case = {
   details: 'SYSTEM CONTROLLER FAULT ALARM',
   givenInformation:
     'Case History: Patient is a 74 YO M with a PMH of Class IV CHF (with LVAD implantation two years ago). Patient presented to the ED following his husband noticing that the patient was slurring their speech and their face looked "funny" on the left side. EMS reported left sided pronator defit and decreased awareness (AOx2). Patient vitals from EMS reported HLD and HTN (160/83). Patient medication list includes sacubitril, valsartan, atorvastatin, metoprolol, furosemide, sprionolactone, aspirin, and warfarin. ',
-  controller: {
-    display: {
-      parameters: {
+  controller: [
+      {
         details: 'Parameters',
         id: 'parameters',
         feedback: 'LVAD parameters showed low PI, elevated power, low flow, and normal speed.',
@@ -221,7 +227,7 @@ export let Case2: Case = {
         criticalFailure: false,
         resolvesSimulation: false,
       },
-      arrowCheck: {
+       {
         id: 'arrowCheck',
         details: 'Arrow check',
         feedback: 'Arrows ON',
@@ -229,8 +235,7 @@ export let Case2: Case = {
         criticalFailure: false,
         resolvesSimulation: false,
       },
-    },
-    listenForHum: {
+     {
       id: 'listenForHum',
       details: 'Listen for hum',
       feedback: 'There is an audible hum',
@@ -238,9 +243,15 @@ export let Case2: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
     },
-    pump: {
-      isOn: {
-        haveLVADTeamReplaceController: {
+     {
+      id: 'pumpIsOn',
+      details: 'pumpIsOn',
+      feedback: '',
+      requiredToCheck: false,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      subOptions: [
+        {
           id: 'pumpOnVADReplace',
           details: 'Pump is on: Have VAD team replace controller',
           feedback: '',
@@ -248,35 +259,45 @@ export let Case2: Case = {
           criticalFailure: false,
           resolvesSimulation: false,
         },
-        replaceControllerYourself: {
+         {
           id: 'pumpOnYouReplace',
           details: 'Pump is on: Replace controller yourself immediately',
           feedback: 'Dead',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-        },
+         },    
+         ]
       },
-      isOff: {
-        haveLVADTeamReplaceController: {
-          id: 'pumpOffVADReplace',
-          details: 'Pump is off: Have VAD team replace controller',
-          feedback: '',
-          requiredToCheck: false,
-          criticalFailure: true,
-          resolvesSimulation: false,
+
+      {
+      id: 'pumpIsOff',
+      details: 'pumpIsOff',
+      feedback: '',
+      requiredToCheck: false,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      subOptions: [
+             {
+              id: 'pumpOffVADReplace',
+              details: 'Pump is off: Have VAD team replace controller',
+              feedback: '',
+              requiredToCheck: false,
+              criticalFailure: true,
+              resolvesSimulation: false,
+            },
+            {
+              id: 'pumpOffYouReplace',
+              details: 'Pump is off: Replace controller yourself immediately',
+              feedback: 'Dead',
+              requiredToCheck: false,
+              criticalFailure: true,
+              resolvesSimulation: false,
+            },
+          ]
         },
-        replaceControllerYourself: {
-          id: 'pumpOffYouReplace',
-          details: 'Pump is off: Replace controller yourself immediately',
-          feedback: 'Dead',
-          requiredToCheck: false,
-          criticalFailure: true,
-          resolvesSimulation: false,
-        },
-      },
-    },
-  },
+  ],
+
   vitals: [
     {
       id: 'NIBPCuff',
@@ -327,8 +348,9 @@ export let Case2: Case = {
       resolvesSimulation: false,
     },
   ],
-  lvadTeam: {
-    callCoordinator: {
+  
+  lvadTeam: [
+    {
       id: 'callLVADCoordinator',
       details: 'Call the LVAD Coordinator',
       feedback: 'VAD Team has been called',
@@ -336,7 +358,7 @@ export let Case2: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
     },
-  },
+  ]
   
 };
 

@@ -1,12 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  Case,
-  Case1,
-  Case2,
-  CasePossibility,
-  key,
-  keyNoOrder,
-} from 'models/Case';
+import { Case, Case1, Case2, CasePossibility } from 'models/Case';
 @Injectable({
   providedIn: 'root',
 })
@@ -60,9 +53,9 @@ export class CaseService {
     cp.checkedByUser = true;
     this.clickedPossibilities.push(cp);
 
-    if (!keyNoOrder.includes(cp.id)) {
+    /*     if (!keyNoOrder.includes(cp.id)) {
       this.clickedPossibilitiesIds.push(cp.id);
-    }
+    } */
 
     // If critical failure, end run
     if (cp.criticalFailure) {
@@ -70,7 +63,7 @@ export class CaseService {
       this.currentSimulation.failed = true;
     }
 
-    if (
+    /*     if (
       this.clickedPossibilitiesIds.length === key.length &&
       this.allVitalsChecked()
     ) {
@@ -100,7 +93,7 @@ export class CaseService {
         this.currentSimulation.complete = true;
         this.addFeedback('Simulation Complete!');
       }
-    }
+    } */
   }
 
   allVitalsChecked() {
@@ -114,8 +107,29 @@ export class CaseService {
       });
   }
 
-  closeCase(){
-    
-  }
+  closeCase() {
+    // Sort clicked ids by wether they are ordered or not
+    let unordered: string[] = [];
+    let ordered: string[] = [];
+    this.clickedPossibilitiesIds.forEach((id) => {
+      if (this.currentCase?.key.keyUnordered.includes(id)) {
+        unordered.push(id);
+      } else {
+        ordered.push(id);
+      }
+    });
 
+    if (
+      unordered.length === this.currentCase?.key.keyUnordered.length &&
+      ordered.length === this.currentCase?.key.keyOrdered.length
+    ) {
+
+    }else {
+      
+    }
+      if (!this.currentSimulation.failed) {
+        this.currentSimulation.complete = true;
+        this.addFeedback('Simulation Complete!');
+      }
+  }
 }

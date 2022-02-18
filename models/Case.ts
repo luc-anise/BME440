@@ -6,13 +6,17 @@ export interface Case {
   controller: CasePossibility[];
   lvadTeam: CasePossibility[];
   //Labs: Labs; -- Not using this yet
+  key: {
+    keyOrdered: string[];
+    keyUnordered: string[];
+  };
 }
 
 export interface newCase {
   name: string;
   details: string;
   givenInformation: string;
-  tree: CasePossibility[]  // --> [Vitals, Controller, LVADTeam, Labs]
+  tree: CasePossibility[]; // --> [Vitals, Controller, LVADTeam, Labs]
 }
 
 export interface CasePossibility {
@@ -23,9 +27,8 @@ export interface CasePossibility {
   requiredToCheck: boolean;
   criticalFailure: boolean;
   resolvesSimulation: boolean;
-  subOptions?: CasePossibility[]; 
+  subOptions?: CasePossibility[];
 }
-
 
 interface Vitals {
   //bloodPressure: BloodPressure;
@@ -72,22 +75,22 @@ export let Case1: Case = {
   givenInformation:
     'Case History: LVAD patient DH (58 YO male) was presented to the Emergency Department after he jumped in the pool to save his son who he thought was drowning',
   controller: [
-      {
-        details: 'Parameters',
-        id: 'parameters',
-        feedback: 'Normal Operations',
-        requiredToCheck: false,
-        criticalFailure: false,
-        resolvesSimulation: false,
-      },
-      {
-        id: 'arrowCheck',
-        details: 'Arrow check',
-        feedback: 'Arrows ON',
-        requiredToCheck: false,
-        criticalFailure: false,
-        resolvesSimulation: false,
-      },
+    {
+      details: 'Parameters',
+      id: 'parameters',
+      feedback: 'Normal Operations',
+      requiredToCheck: false,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
+    {
+      id: 'arrowCheck',
+      details: 'Arrow check',
+      feedback: 'Arrows ON',
+      requiredToCheck: false,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
     {
       id: 'listenForHum',
       details: 'Listen for hum',
@@ -112,17 +115,17 @@ export let Case1: Case = {
           criticalFailure: false,
           resolvesSimulation: false,
         },
-         {
+        {
           id: 'pumpOnYouReplace',
           details: 'Pump is on: Replace controller yourself immediately',
           feedback: 'Dead',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-         },    
-         ]
-      },
-      {
+        },
+      ],
+    },
+    {
       id: 'pumpIsOff',
       details: 'pumpIsOff',
       feedback: '',
@@ -130,24 +133,24 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       subOptions: [
-             {
-              id: 'pumpOffVADReplace',
-              details: 'Pump is off: Have VAD team replace controller',
-              feedback: '',
-              requiredToCheck: false,
-              criticalFailure: true,
-              resolvesSimulation: false,
-            },
-            {
-              id: 'pumpOffYouReplace',
-              details: 'Pump is off: Replace controller yourself immediately',
-              feedback: 'Dead',
-              requiredToCheck: false,
-              criticalFailure: true,
-              resolvesSimulation: false,
-            },
-          ]
+        {
+          id: 'pumpOffVADReplace',
+          details: 'Pump is off: Have VAD team replace controller',
+          feedback: '',
+          requiredToCheck: false,
+          criticalFailure: true,
+          resolvesSimulation: false,
         },
+        {
+          id: 'pumpOffYouReplace',
+          details: 'Pump is off: Replace controller yourself immediately',
+          feedback: 'Dead',
+          requiredToCheck: false,
+          criticalFailure: true,
+          resolvesSimulation: false,
+        },
+      ],
+    },
   ],
 
   vitals: [
@@ -219,23 +222,24 @@ export let Case2: Case = {
   givenInformation:
     'Case History: Patient is a 74 YO M with a PMH of Class IV CHF (with LVAD implantation two years ago). Patient presented to the ED following his husband noticing that the patient was slurring their speech and their face looked "funny" on the left side. EMS reported left sided pronator defit and decreased awareness (AOx2). Patient vitals from EMS reported HLD and HTN (160/83). Patient medication list includes sacubitril, valsartan, atorvastatin, metoprolol, furosemide, sprionolactone, aspirin, and warfarin. ',
   controller: [
-      {
-        details: 'Parameters',
-        id: 'parameters',
-        feedback: 'LVAD parameters showed low PI, elevated power, low flow, and normal speed.',
-        requiredToCheck: false,
-        criticalFailure: false,
-        resolvesSimulation: false,
-      },
-       {
-        id: 'arrowCheck',
-        details: 'Arrow check',
-        feedback: 'Arrows ON',
-        requiredToCheck: false,
-        criticalFailure: false,
-        resolvesSimulation: false,
-      },
-     {
+    {
+      details: 'Parameters',
+      id: 'parameters',
+      feedback:
+        'LVAD parameters showed low PI, elevated power, low flow, and normal speed.',
+      requiredToCheck: false,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
+    {
+      id: 'arrowCheck',
+      details: 'Arrow check',
+      feedback: 'Arrows ON',
+      requiredToCheck: false,
+      criticalFailure: false,
+      resolvesSimulation: false,
+    },
+    {
       id: 'listenForHum',
       details: 'Listen for hum',
       feedback: 'There is an audible hum',
@@ -243,7 +247,7 @@ export let Case2: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
     },
-     {
+    {
       id: 'pumpIsOn',
       details: 'pumpIsOn',
       feedback: '',
@@ -259,18 +263,18 @@ export let Case2: Case = {
           criticalFailure: false,
           resolvesSimulation: false,
         },
-         {
+        {
           id: 'pumpOnYouReplace',
           details: 'Pump is on: Replace controller yourself immediately',
           feedback: 'Dead',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-         },    
-         ]
-      },
+        },
+      ],
+    },
 
-      {
+    {
       id: 'pumpIsOff',
       details: 'pumpIsOff',
       feedback: '',
@@ -278,24 +282,24 @@ export let Case2: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       subOptions: [
-             {
-              id: 'pumpOffVADReplace',
-              details: 'Pump is off: Have VAD team replace controller',
-              feedback: '',
-              requiredToCheck: false,
-              criticalFailure: true,
-              resolvesSimulation: false,
-            },
-            {
-              id: 'pumpOffYouReplace',
-              details: 'Pump is off: Replace controller yourself immediately',
-              feedback: 'Dead',
-              requiredToCheck: false,
-              criticalFailure: true,
-              resolvesSimulation: false,
-            },
-          ]
+        {
+          id: 'pumpOffVADReplace',
+          details: 'Pump is off: Have VAD team replace controller',
+          feedback: '',
+          requiredToCheck: false,
+          criticalFailure: true,
+          resolvesSimulation: false,
         },
+        {
+          id: 'pumpOffYouReplace',
+          details: 'Pump is off: Replace controller yourself immediately',
+          feedback: 'Dead',
+          requiredToCheck: false,
+          criticalFailure: true,
+          resolvesSimulation: false,
+        },
+      ],
+    },
   ],
 
   vitals: [
@@ -348,7 +352,7 @@ export let Case2: Case = {
       resolvesSimulation: false,
     },
   ],
-  
+
   lvadTeam: [
     {
       id: 'callLVADCoordinator',
@@ -358,8 +362,7 @@ export let Case2: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
     },
-  ]
-  
+  ],
 };
 
 export let key: string[] = [

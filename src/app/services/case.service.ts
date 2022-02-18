@@ -113,4 +113,9 @@ export class CaseService {
         return true;
       });
   }
+
+  closeCase(){
+    
+  }
+
 }

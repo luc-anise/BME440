@@ -1,5 +1,15 @@
 <div *ngIf="case" class="container mx-auto w-4/5">
-  <h2 class="text-xl font-bold w-full text-left">{{ case.name }}</h2>
+  <div class = "flex-auto justify-between">
+    <h2 class="text-xl font-bold w-full text-left">{{ case.name }}</h2>
+    <button
+        class="shadow-2xl text-center rounded-lg text-white bg-blue-700 cursor-pointer"
+      >
+        test
+    </button>
+  </div>
+
   <hr class="border-t-2" />
   <p class="w-full text-left">{{ case.givenInformation }}</p>
+
+  
 </div>

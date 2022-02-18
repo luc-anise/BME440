@@ -74,7 +74,25 @@ export let Case1: Case = {
   details: 'SYSTEM CONTROLLER FAULT ALARM',
   givenInformation:
     'Case History: LVAD patient DH (58 YO male) was presented to the Emergency Department after he jumped in the pool to save his son who he thought was drowning',
-  controller: [
+  key: {
+    keyOrdered: [
+      'callLVADCoordinator',
+      'parameters',
+      'arrowCheck',
+      'listenForHum',
+      'pumpOnVADReplace',
+     ],
+    
+     keyUnordered: [
+      'NIBPCuff',
+      'doppler',
+      'heartRate',
+      'temperature',
+      'pulseOximeter',
+      'respirations',
+    ],
+  },
+    controller: [
     {
       details: 'Parameters',
       id: 'parameters',
@@ -221,7 +239,25 @@ export let Case2: Case = {
   details: 'SYSTEM CONTROLLER FAULT ALARM',
   givenInformation:
     'Case History: Patient is a 74 YO M with a PMH of Class IV CHF (with LVAD implantation two years ago). Patient presented to the ED following his husband noticing that the patient was slurring their speech and their face looked "funny" on the left side. EMS reported left sided pronator defit and decreased awareness (AOx2). Patient vitals from EMS reported HLD and HTN (160/83). Patient medication list includes sacubitril, valsartan, atorvastatin, metoprolol, furosemide, sprionolactone, aspirin, and warfarin. ',
-  controller: [
+    key: {
+      keyOrdered: [
+        'callLVADCoordinator',
+        'parameters',
+        'arrowCheck',
+        'listenForHum',
+        'pumpOnVADReplace',
+       ],
+       
+       keyUnordered: [
+        'NIBPCuff',
+        'doppler',
+        'heartRate',
+        'temperature',
+        'pulseOximeter',
+        'respirations',
+      ],
+    },
+    controller: [
     {
       details: 'Parameters',
       id: 'parameters',
@@ -365,19 +401,4 @@ export let Case2: Case = {
   ],
 };
 
-export let key: string[] = [
-  'callLVADCoordinator',
-  'parameters',
-  'arrowCheck',
-  'listenForHum',
-  'pumpOnVADReplace',
-];
 
-export let keyNoOrder: string[] = [
-  'NIBPCuff',
-  'doppler',
-  'heartRate',
-  'temperature',
-  'pulseOximeter',
-  'respirations',
-];

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Case } from 'models/Case';
+import { CaseService } from 'src/app/services/case.service';
 
 @Component({
   selector: 'app-case-details',
@@ -9,7 +10,7 @@ import { Case } from 'models/Case';
 export class CaseDetailsComponent implements OnInit {
   @Input() case?: Case;
 
-  constructor() { }
+  constructor(public caseService: CaseService) { }
 
   ngOnInit(): void {
   }

@@ -56,7 +56,7 @@ export class CaseService {
     /*     if (!keyNoOrder.includes(cp.id)) {
       this.clickedPossibilitiesIds.push(cp.id);
     } */
-
+    this.clickedPossibilitiesIds.push(cp.id);
     // If critical failure, end run
     if (cp.criticalFailure) {
       this.addFeedback('Case Failed!');
@@ -109,8 +109,14 @@ export class CaseService {
 
   closeCase() {
     // Sort clicked ids by wether they are ordered or not
+    if (!this.currentCase) {
+      console.error('No case selected');
+      return;
+    }
+
     let unordered: string[] = [];
     let ordered: string[] = [];
+
     this.clickedPossibilitiesIds.forEach((id) => {
       if (this.currentCase?.key.keyUnordered.includes(id)) {
         unordered.push(id);
@@ -118,18 +124,44 @@ export class CaseService {
         ordered.push(id);
       }
     });
+    console.log(unordered, ordered, this.clickedPossibilitiesIds);
 
     if (
       unordered.length === this.currentCase?.key.keyUnordered.length &&
       ordered.length === this.currentCase?.key.keyOrdered.length
     ) {
-
-    }else {
-      
-    }
-      if (!this.currentSimulation.failed) {
-        this.currentSimulation.complete = true;
-        this.addFeedback('Simulation Complete!');
+      try {
+        ordered.forEach((id, index) => {
+          if (this.currentCase?.key.keyOrdered[index] !== id) {
+            this.addFeedback('Case Failed! Something was done out of order.');
+            this.currentSimulation.failed = true;
+            throw {
+              index,
+              feedback:
+                this.clickedPossibilities[
+                  this.clickedPossibilitiesIds.indexOf(id)
+                ].feedback,
+            };
+          }
+        });
+      } catch (error) {
+        let err: { index: number; feedback: string } = error as {
+          index: number;
+          feedback: string;
+        };
+        // TODO: Improve feedback to user, should have better explainations as to why what they did is incorrect, maybe print out all the steps they clicked an in what order etc.
+        this.addFeedback(
+          `Step ${err.index} was incorrect because ${err.feedback}`
+        );
       }
+    } else {
+      // Fails
+      this.addFeedback(`Case Failed, you are missing some steps!`);
+      this.currentSimulation.failed = true;
+    }
+    if (!this.currentSimulation.failed) {
+      this.currentSimulation.complete = true;
+      this.addFeedback('Simulation Complete!');
+    }
   }
 }

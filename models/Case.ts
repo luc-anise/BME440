@@ -119,7 +119,7 @@ export let Case1: Case = {
     },
     {
       id: 'pumpIsOn',
-      details: 'pumpIsOn',
+      details: 'Pump is on',
       feedback: '',
       requiredToCheck: false,
       criticalFailure: false,
@@ -145,7 +145,7 @@ export let Case1: Case = {
     },
     {
       id: 'pumpIsOff',
-      details: 'pumpIsOff',
+      details: 'Pump is off',
       feedback: '',
       requiredToCheck: false,
       criticalFailure: false,
@@ -285,7 +285,7 @@ export let Case2: Case = {
     },
     {
       id: 'pumpIsOn',
-      details: 'pumpIsOn',
+      details: 'Pump is on',
       feedback: '',
       requiredToCheck: false,
       criticalFailure: false,
@@ -312,7 +312,7 @@ export let Case2: Case = {
 
     {
       id: 'pumpIsOff',
-      details: 'pumpIsOff',
+      details: 'Pump is off',
       feedback: '',
       requiredToCheck: false,
       criticalFailure: false,

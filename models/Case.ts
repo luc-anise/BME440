@@ -29,6 +29,7 @@ export interface CasePossibility {
   resolvesSimulation: boolean;
   pointValue?: number;
   subOptions?: CasePossibility[];
+  reportFeedback?: string;
 }
 
 interface Vitals {

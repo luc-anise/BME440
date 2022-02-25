@@ -102,6 +102,7 @@ export let Case1: Case = {
       requiredToCheck: false,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "Controller parameters are normal when checked.",
     },
     {
       id: 'arrowCheck',
@@ -110,6 +111,7 @@ export let Case1: Case = {
       requiredToCheck: false,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "Controller Arrows were on when checked.",
     },
     {
       id: 'listenForHum',
@@ -118,6 +120,7 @@ export let Case1: Case = {
       requiredToCheck: false,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "Audible Hum was detected when listened for.",
     },
     {
       id: 'pumpIsOn',
@@ -134,6 +137,7 @@ export let Case1: Case = {
           requiredToCheck: false,
           criticalFailure: false,
           resolvesSimulation: false,
+          reportFeedback:"Excellent job! You did a thorough assessment of the pump function and determined that the safest action is to wait for the VAD team to replace the controller.",
         },
         {
           id: 'pumpOnYouReplace',
@@ -142,6 +146,7 @@ export let Case1: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
+          reportFeedback: "RITICAL FAIL: NEVER replace the controller yourself, unless you have thoroughly determined that the pump is not operational and no blood is circulating. It is much safer to wait for the VAD team to replace the controller if the pump is functional.",
         },
       ],
     },
@@ -160,6 +165,7 @@ export let Case1: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
+          reportFeedback: "CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. Additionally, if the pump truly was off, you need to replace the controller immediately.",
         },
         {
           id: 'pumpOffYouReplace',
@@ -168,6 +174,7 @@ export let Case1: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
+          reportFeedback: "CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. However, if the pump was truly off, you correctly determined that you need to replace the controller immediately.",
         },
       ],
     },
@@ -181,6 +188,7 @@ export let Case1: Case = {
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "Good job - it is best to attempt a blood pressure reading with an NIBP cuff first, and move to doppler if a reading cannot be obtained.",
     },
     {
       id: 'doppler',
@@ -232,6 +240,7 @@ export let Case1: Case = {
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "VAD coordinator team was called ASAP - This should always be the first step regardless of the case.",
     },
   ],
 };
@@ -269,6 +278,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
+      reportFeedback: "Controller parameters were normal when checked.",
     },
     {
       id: 'arrowCheck',
@@ -278,6 +288,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
+      reportFeedback: "Controller arrows were on when checked.",
     },
     {
       id: 'listenForHum',
@@ -287,6 +298,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
+      reportFeedback: "Audible hum from device was detected.",
     },
     {
       id: 'pumpIsOn',
@@ -304,6 +316,7 @@ export let Case2: Case = {
           criticalFailure: false,
           pointValue: 1,
           resolvesSimulation: false,
+          reportFeedback: "Good job - You were correct in determining that the pump is functional, but your assessment needs to be more thorough. You left out one or more important factors that could have changed your decision. You correctly determined that the safest action is to wait for the VAD team to replace the controller.",
         },
         {
           id: 'pumpOnYouReplace',
@@ -312,6 +325,7 @@ export let Case2: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
+          reportFeedback: "CRITICAL FAIL: NEVER replace the controller yourself, unless you have thoroughly determined that the pump is not operational and no blood is circulating. It is much safer to wait for the VAD team to replace the controller if the pump is functional.",
         },
       ],
     },
@@ -331,6 +345,7 @@ export let Case2: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
+          reportFeedback: "CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. Additionally, if the pump truly was off, you need to replace the controller immediately.",
         },
         {
           id: 'pumpOffYouReplace',
@@ -339,7 +354,7 @@ export let Case2: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-        },
+          reportFeedback: "CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. However, if the pump was truly off, you correctly determined that you need to replace the controller immediately.",        },
       ],
     },
   ],
@@ -353,6 +368,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
+      reportFeedback: "Good job - it is best to attempt a blood pressure reading with an NIBP cuff first, and move to doppler if a reading cannot be obtained.",
     },
     {
       id: 'doppler',
@@ -409,6 +425,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
+      reportFeedback: "VAD coordinator team was called ASAP - this should always be the first step regardless of the case."
     },
   ],
 };

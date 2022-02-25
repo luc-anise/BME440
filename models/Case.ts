@@ -266,6 +266,7 @@ export let Case2: Case = {
         'LVAD parameters showed low PI, elevated power, low flow, and normal speed.',
       requiredToCheck: false,
       criticalFailure: false,
+      pointValue: 1,
       resolvesSimulation: false,
     },
     {
@@ -274,6 +275,7 @@ export let Case2: Case = {
       feedback: 'Arrows ON',
       requiredToCheck: false,
       criticalFailure: false,
+      pointValue: 1,
       resolvesSimulation: false,
     },
     {
@@ -282,6 +284,7 @@ export let Case2: Case = {
       feedback: 'There is an audible hum',
       requiredToCheck: false,
       criticalFailure: false,
+      pointValue: 1,
       resolvesSimulation: false,
     },
     {
@@ -298,6 +301,7 @@ export let Case2: Case = {
           feedback: '',
           requiredToCheck: false,
           criticalFailure: false,
+          pointValue: 1,
           resolvesSimulation: false,
         },
         {
@@ -346,6 +350,7 @@ export let Case2: Case = {
       feedback: 'You are unable to obtain an accurate reading.',
       requiredToCheck: true,
       criticalFailure: false,
+      pointValue: 0.75,
       resolvesSimulation: false,
     },
     {
@@ -354,6 +359,7 @@ export let Case2: Case = {
       feedback: 'Doppler shows a mean arterial pressure of 100 mmHg.',
       requiredToCheck: true,
       criticalFailure: false,
+      pointValue: 1,
       resolvesSimulation: false,
     },
     {
@@ -370,6 +376,7 @@ export let Case2: Case = {
       feedback: 'Patient temperature is 38.4 deg C.',
       requiredToCheck: true,
       criticalFailure: false,
+      pointValue: 1,
       resolvesSimulation: false,
     },
     {
@@ -378,6 +385,7 @@ export let Case2: Case = {
       feedback: 'O2 error: no reading',
       requiredToCheck: true,
       criticalFailure: false,
+      pointValue: 1,
       resolvesSimulation: false,
     },
     {
@@ -386,6 +394,7 @@ export let Case2: Case = {
       feedback: 'Respiration rate is within normal range',
       requiredToCheck: true,
       criticalFailure: false,
+      pointValue: 1,
       resolvesSimulation: false,
     },
   ],
@@ -397,6 +406,7 @@ export let Case2: Case = {
       feedback: 'VAD Team has been called',
       requiredToCheck: true,
       criticalFailure: false,
+      pointValue: 1,
       resolvesSimulation: false,
     },
   ],

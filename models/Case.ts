@@ -27,6 +27,7 @@ export interface CasePossibility {
   requiredToCheck: boolean;
   criticalFailure: boolean;
   resolvesSimulation: boolean;
+  pointValue?: number;
   subOptions?: CasePossibility[];
 }
 

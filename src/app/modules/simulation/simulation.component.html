@@ -72,7 +72,7 @@
         Labs
       </div>
     </div>
-     <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </section>
 
   <section
@@ -84,6 +84,11 @@
     </h3>
     <h3 class="w-full text-center text-red-600 font-bold text-2xl">
       Please see feedback below.
+      <a
+        [routerLink]="['/simulation/report']"
+        routerLinkActive="router-link-active"
+        >Click me</a
+      >
     </h3>
   </section>
   <section

@@ -9,6 +9,7 @@ import { VitalsComponent } from './components/vitals/vitals.component';
 import { ControllerComponent } from './components/controller/controller.component';
 import { LvadTeamComponent } from './components/lvad-team/lvad-team.component';
 import { CaseButtonComponent } from './components/case-button/case-button.component';
+import { ReportComponent } from './components/report/report.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CaseButtonComponent } from './components/case-button/case-button.compon
     VitalsComponent,
     ControllerComponent,
     LvadTeamComponent,
-    CaseButtonComponent
+    CaseButtonComponent,
+    ReportComponent
   ],  
   imports: [
     CommonModule,

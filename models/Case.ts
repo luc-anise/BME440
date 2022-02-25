@@ -197,6 +197,7 @@ export let Case1: Case = {
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "Blood pressure was normal when checked.",
     },
     {
       details: 'Heart Rate',
@@ -205,6 +206,7 @@ export let Case1: Case = {
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "There was no measurable heart rate when checked.", 
     },
     {
       id: 'temperature',
@@ -213,6 +215,7 @@ export let Case1: Case = {
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "Temperature was within normal range when checked.",
     },
     {
       id: 'pulseOximeter',
@@ -221,6 +224,7 @@ export let Case1: Case = {
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "O2 was within normal range when checked.",
     },
     {
       id: 'respirations',
@@ -229,6 +233,7 @@ export let Case1: Case = {
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "Repiration rate was within normal range when checked.",
     },
   ],
 
@@ -378,6 +383,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
+      reportFeedback: "Blood pressure was normal when checked.",
     },
     {
       details: 'Heart Rate',
@@ -386,6 +392,7 @@ export let Case2: Case = {
       requiredToCheck: true,
       criticalFailure: false,
       resolvesSimulation: false,
+      reportFeedback: "There was no measurable heart rate when checked.",
     },
     {
       id: 'temperature',
@@ -395,6 +402,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
+      reportFeedback:"Temperature was within normal range when checked.",
     },
     {
       id: 'pulseOximeter',
@@ -404,6 +412,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
+      reportFeedback: "O2 was within normal range when checked.",
     },
     {
       id: 'respirations',
@@ -413,6 +422,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
+      reportFeedback: "Repiration rate was within normal range when checked.",
     },
   ],
 

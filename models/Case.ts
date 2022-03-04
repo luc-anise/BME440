@@ -30,6 +30,7 @@ export interface CasePossibility {
   pointValue?: number;
   subOptions?: CasePossibility[];
   reportFeedback?: string;
+  missingFeedback?: string; 
 }
 
 interface Vitals {
@@ -103,6 +104,7 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       reportFeedback: "Controller parameters are normal when checked.",
+      missingFeedback: "You did not check the device parameters. A complete pump function assessment requires that you check the arrow lights, listen for the hum, and inspect parameters of the device.",
     },
     {
       id: 'arrowCheck',
@@ -112,6 +114,7 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       reportFeedback: "Controller Arrows were on when checked.",
+      missingFeedback: "You did not inspect the controller arrows. A complete pump function assessment requires that you check the arrow lights, listen for the hum, and inspect parameters of the device.",
     },
     {
       id: 'listenForHum',
@@ -121,6 +124,7 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       reportFeedback: "Audible Hum was detected when listened for.",
+      missingFeedback: "You did not check for the device hum. A complete pump function assessment requires that you check the arrow lights, listen for the hum, and inspect parameters of the device.",
     },
     {
       id: 'pumpIsOn',
@@ -189,6 +193,7 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       reportFeedback: "Good job - it is best to attempt a blood pressure reading with an NIBP cuff first, and move to doppler if a reading cannot be obtained.",
+      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
     },
     {
       id: 'doppler',
@@ -198,6 +203,7 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       reportFeedback: "Blood pressure was normal when checked.",
+      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
     },
     {
       details: 'Heart Rate',
@@ -207,6 +213,7 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       reportFeedback: "There was no measurable heart rate when checked.", 
+      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
     },
     {
       id: 'temperature',
@@ -216,6 +223,7 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       reportFeedback: "Temperature was within normal range when checked.",
+      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
     },
     {
       id: 'pulseOximeter',
@@ -225,6 +233,7 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       reportFeedback: "O2 was within normal range when checked.",
+      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
     },
     {
       id: 'respirations',
@@ -234,6 +243,7 @@ export let Case1: Case = {
       criticalFailure: false,
       resolvesSimulation: false,
       reportFeedback: "Repiration rate was within normal range when checked.",
+      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
     },
   ],
 

@@ -124,13 +124,21 @@ export class CaseService {
         ordered.push(id);
       }
     });
-    console.log(unordered, ordered, this.clickedPossibilitiesIds);
 
     if (
       unordered.length === this.currentCase?.key.keyUnordered.length &&
       ordered.length === this.currentCase?.key.keyOrdered.length
     ) {
       try {
+        // Asserts that LVAD coordinator must be done before even the unordered things
+        if (this.clickedPossibilitiesIds[0] !== 'callLVADCoordinator') {
+          this.currentSimulation.failed = true;
+          throw {
+            index: 0,
+            feedback: 'you MUST call the LVAD Coordinator first!',
+          };
+        }
+
         ordered.forEach((id, index) => {
           if (this.currentCase?.key.keyOrdered[index] !== id) {
             this.addFeedback('Case Failed! Something was done out of order.');
@@ -151,7 +159,7 @@ export class CaseService {
         };
         // TODO: Improve feedback to user, should have better explainations as to why what they did is incorrect, maybe print out all the steps they clicked an in what order etc.
         this.addFeedback(
-          `Step ${err.index} was incorrect because ${err.feedback}`
+          `Step ${err.index + 1} was incorrect because ${err.feedback}`
         );
       }
     } else {
@@ -159,9 +167,38 @@ export class CaseService {
       this.addFeedback(`Case Failed, you are missing some steps!`);
       this.currentSimulation.failed = true;
     }
+
+    // If they didn't fail (statements above do not throw) do this
     if (!this.currentSimulation.failed) {
       this.currentSimulation.complete = true;
       this.addFeedback('Simulation Complete!');
+    } else {
+      const missingOrdered = this.currentCase.key.keyOrdered.filter((id) => {
+        return !ordered.includes(id);
+      });
+      const missingUnordered = this.currentCase.key.keyUnordered.filter(
+        (id) => {
+          return !unordered.includes(id);
+        }
+      );
+      const missing = missingOrdered.concat(missingUnordered);
+
+      const missingCP = missing.map((id) => {
+        let sub: CasePossibility | undefined;
+        let cp =
+          this.currentCase?.controller.find((x) => {
+            if (x.subOptions) {
+              sub = x.subOptions.find((y) => y.id === id);
+              return false; //x.subOptions.find((y) => y.id === id);
+            }
+            return x.id === id;
+          }) ||
+          this.currentCase?.vitals.find((x) => x.id === id) ||
+          this.currentCase?.lvadTeam.find((x) => x.id === id);
+        return sub ? sub : cp;
+      });
+
+      console.log(missingCP);
     }
   }
 }

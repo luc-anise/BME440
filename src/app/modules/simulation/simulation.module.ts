@@ -10,6 +10,7 @@ import { ControllerComponent } from './components/controller/controller.componen
 import { LvadTeamComponent } from './components/lvad-team/lvad-team.component';
 import { CaseButtonComponent } from './components/case-button/case-button.component';
 import { ReportComponent } from './components/report/report.component';
+import { LabsComponent } from './components/labs/labs.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReportComponent } from './components/report/report.component';
     ControllerComponent,
     LvadTeamComponent,
     CaseButtonComponent,
-    ReportComponent
+    ReportComponent,
+    LabsComponent
   ],  
   imports: [
     CommonModule,

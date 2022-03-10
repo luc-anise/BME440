@@ -33,7 +33,12 @@ export class CaseService {
     this.currentSimulation = { failed: false, complete: false };
     this.currentCase = c;
     this.attempt = {};
-    this.attempt = { caseID: c.name, startTime: Timestamp.now(), score: 0 };
+    this.attempt = {
+      caseID: c.name,
+      startTime: Timestamp.now(),
+      score: 0,
+      totalPoints: c.key.totalPoints,
+    };
     // TODO: Timer, how long it took user to complete sim
   }
 
@@ -243,7 +248,7 @@ export class CaseService {
         collection(this.db, 'attempts'),
         this.attempt
       );
-      
+
       console.log(docRef.id);
     } catch (error) {
       console.error(error);

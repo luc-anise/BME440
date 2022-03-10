@@ -9,6 +9,7 @@ export interface Case {
   key: {
     keyOrdered: string[];
     keyUnordered: string[];
+    totalPoints: number;
   };
 }
 export interface CasePossibility {
@@ -22,7 +23,7 @@ export interface CasePossibility {
   pointValue?: number;
   subOptions?: CasePossibility[];
   reportFeedback?: string;
-  missingFeedback?: string; 
+  missingFeedback?: string;
 }
 
 export let Case1: Case = {
@@ -37,9 +38,9 @@ export let Case1: Case = {
       'arrowCheck',
       'listenForHum',
       'pumpOnVADReplace',
-     ],
-    
-     keyUnordered: [
+    ],
+
+    keyUnordered: [
       'NIBPCuff',
       'doppler',
       'heartRate',
@@ -47,18 +48,20 @@ export let Case1: Case = {
       'pulseOximeter',
       'respirations',
     ],
+    totalPoints: 0,
   },
-    controller: [
+  controller: [
     {
       details: 'Parameters',
       id: 'parameters',
       feedback: 'Normal Operations',
       requiredToCheck: false,
       criticalFailure: false,
-      pointValue: 1, 
+      pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Controller parameters are normal when checked.",
-      missingFeedback: "You did not check the device parameters. A complete pump function assessment requires that you check the arrow lights, listen for the hum, and inspect parameters of the device.",
+      reportFeedback: 'Controller parameters are normal when checked.',
+      missingFeedback:
+        'You did not check the device parameters. A complete pump function assessment requires that you check the arrow lights, listen for the hum, and inspect parameters of the device.',
     },
     {
       id: 'arrowCheck',
@@ -68,8 +71,9 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Controller Arrows were on when checked.",
-      missingFeedback: "You did not inspect the controller arrows. A complete pump function assessment requires that you check the arrow lights, listen for the hum, and inspect parameters of the device.",
+      reportFeedback: 'Controller Arrows were on when checked.',
+      missingFeedback:
+        'You did not inspect the controller arrows. A complete pump function assessment requires that you check the arrow lights, listen for the hum, and inspect parameters of the device.',
     },
     {
       id: 'listenForHum',
@@ -79,8 +83,9 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Audible Hum was detected when listened for.",
-      missingFeedback: "You did not check for the device hum. A complete pump function assessment requires that you check the arrow lights, listen for the hum, and inspect parameters of the device.",
+      reportFeedback: 'Audible Hum was detected when listened for.',
+      missingFeedback:
+        'You did not check for the device hum. A complete pump function assessment requires that you check the arrow lights, listen for the hum, and inspect parameters of the device.',
     },
     {
       id: 'pumpIsOn',
@@ -98,7 +103,8 @@ export let Case1: Case = {
           criticalFailure: false,
           pointValue: 1,
           resolvesSimulation: false,
-          reportFeedback:"Excellent job! You did a thorough assessment of the pump function and determined that the safest action is to wait for the VAD team to replace the controller.",
+          reportFeedback:
+            'Excellent job! You did a thorough assessment of the pump function and determined that the safest action is to wait for the VAD team to replace the controller.',
         },
         {
           id: 'pumpOnYouReplace',
@@ -107,7 +113,8 @@ export let Case1: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-          reportFeedback: "RITICAL FAIL: NEVER replace the controller yourself, unless you have thoroughly determined that the pump is not operational and no blood is circulating. It is much safer to wait for the VAD team to replace the controller if the pump is functional.",
+          reportFeedback:
+            'RITICAL FAIL: NEVER replace the controller yourself, unless you have thoroughly determined that the pump is not operational and no blood is circulating. It is much safer to wait for the VAD team to replace the controller if the pump is functional.',
         },
       ],
     },
@@ -126,7 +133,8 @@ export let Case1: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-          reportFeedback: "CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. Additionally, if the pump truly was off, you need to replace the controller immediately.",
+          reportFeedback:
+            'CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. Additionally, if the pump truly was off, you need to replace the controller immediately.',
         },
         {
           id: 'pumpOffYouReplace',
@@ -135,7 +143,8 @@ export let Case1: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-          reportFeedback: "CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. However, if the pump was truly off, you correctly determined that you need to replace the controller immediately.",
+          reportFeedback:
+            'CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. However, if the pump was truly off, you correctly determined that you need to replace the controller immediately.',
         },
       ],
     },
@@ -150,8 +159,10 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
-      reportFeedback: "Good job - it is best to attempt a blood pressure reading with an NIBP cuff first, and move to doppler if a reading cannot be obtained.",
-      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
+      reportFeedback:
+        'Good job - it is best to attempt a blood pressure reading with an NIBP cuff first, and move to doppler if a reading cannot be obtained.',
+      missingFeedback:
+        'All key vitals listed should be checked before finishing evaluation of the patient.',
     },
     {
       id: 'doppler',
@@ -161,8 +172,9 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Blood pressure was normal when checked.",
-      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
+      reportFeedback: 'Blood pressure was normal when checked.',
+      missingFeedback:
+        'All key vitals listed should be checked before finishing evaluation of the patient.',
     },
     {
       details: 'Heart Rate',
@@ -172,8 +184,9 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "There was no measurable heart rate when checked.", 
-      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
+      reportFeedback: 'There was no measurable heart rate when checked.',
+      missingFeedback:
+        'All key vitals listed should be checked before finishing evaluation of the patient.',
     },
     {
       id: 'temperature',
@@ -183,8 +196,9 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Temperature was within normal range when checked.",
-      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
+      reportFeedback: 'Temperature was within normal range when checked.',
+      missingFeedback:
+        'All key vitals listed should be checked before finishing evaluation of the patient.',
     },
     {
       id: 'pulseOximeter',
@@ -194,8 +208,9 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "O2 was within normal range when checked.",
-      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
+      reportFeedback: 'O2 was within normal range when checked.',
+      missingFeedback:
+        'All key vitals listed should be checked before finishing evaluation of the patient.',
     },
     {
       id: 'respirations',
@@ -205,8 +220,9 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Repiration rate was within normal range when checked.",
-      missingFeedback: "All key vitals listed should be checked before finishing evaluation of the patient.",
+      reportFeedback: 'Repiration rate was within normal range when checked.',
+      missingFeedback:
+        'All key vitals listed should be checked before finishing evaluation of the patient.',
     },
   ],
 
@@ -219,7 +235,8 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "VAD coordinator team was called ASAP - This should always be the first step regardless of the case.",
+      reportFeedback:
+        'VAD coordinator team was called ASAP - This should always be the first step regardless of the case.',
     },
   ],
   labs: [
@@ -231,7 +248,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "????",
+      reportFeedback: '????',
     },
     {
       id: 'cbc', //not sure if needed.
@@ -241,7 +258,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "?????",
+      reportFeedback: '?????',
     },
     {
       id: 'inr',
@@ -251,7 +268,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "?????",
+      reportFeedback: '?????',
     },
     {
       id: 'cmp',
@@ -261,7 +278,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
-      reportFeedback: "????",
+      reportFeedback: '????',
     },
     {
       id: 'lactic',
@@ -271,7 +288,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
-      reportFeedback: "??????",
+      reportFeedback: '??????',
     },
     {
       id: 'pt/ptt',
@@ -281,7 +298,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "???????",
+      reportFeedback: '???????',
     },
     {
       id: 'bnp',
@@ -291,9 +308,9 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "???????",
+      reportFeedback: '???????',
     },
-  ]
+  ],
 };
 
 export let Case2: Case = {
@@ -301,25 +318,26 @@ export let Case2: Case = {
   details: 'SYSTEM CONTROLLER FAULT ALARM',
   givenInformation:
     'Case History: Patient is a 74 YO M with a PMH of Class IV CHF (with LVAD implantation two years ago). Patient presented to the ED following his husband noticing that the patient was slurring their speech and their face looked "funny" on the left side. EMS reported left sided pronator defit and decreased awareness (AOx2). Patient vitals from EMS reported HLD and HTN (160/83). Patient medication list includes sacubitril, valsartan, atorvastatin, metoprolol, furosemide, sprionolactone, aspirin, and warfarin. ',
-    key: {
-      keyOrdered: [
-        'callLVADCoordinator',
-        'parameters',
-        'arrowCheck',
-        'listenForHum',
-        'pumpOnVADReplace',
-       ],
-       
-       keyUnordered: [
-        'NIBPCuff',
-        'doppler',
-        'heartRate',
-        'temperature',
-        'pulseOximeter',
-        'respirations',
-      ],
-    },
-    controller: [
+  key: {
+    keyOrdered: [
+      'callLVADCoordinator',
+      'parameters',
+      'arrowCheck',
+      'listenForHum',
+      'pumpOnVADReplace',
+    ],
+
+    keyUnordered: [
+      'NIBPCuff',
+      'doppler',
+      'heartRate',
+      'temperature',
+      'pulseOximeter',
+      'respirations',
+    ],
+    totalPoints: 0,
+  },
+  controller: [
     {
       details: 'Parameters',
       id: 'parameters',
@@ -329,7 +347,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Controller parameters were normal when checked.",
+      reportFeedback: 'Controller parameters were normal when checked.',
     },
     {
       id: 'arrowCheck',
@@ -339,7 +357,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Controller arrows were on when checked.",
+      reportFeedback: 'Controller arrows were on when checked.',
     },
     {
       id: 'listenForHum',
@@ -349,7 +367,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Audible hum from device was detected.",
+      reportFeedback: 'Audible hum from device was detected.',
     },
     {
       id: 'pumpIsOn',
@@ -367,7 +385,8 @@ export let Case2: Case = {
           criticalFailure: false,
           pointValue: 1,
           resolvesSimulation: false,
-          reportFeedback: "Good job - You were correct in determining that the pump is functional, but your assessment needs to be more thorough. You left out one or more important factors that could have changed your decision. You correctly determined that the safest action is to wait for the VAD team to replace the controller.",
+          reportFeedback:
+            'Good job - You were correct in determining that the pump is functional, but your assessment needs to be more thorough. You left out one or more important factors that could have changed your decision. You correctly determined that the safest action is to wait for the VAD team to replace the controller.',
         },
         {
           id: 'pumpOnYouReplace',
@@ -376,7 +395,8 @@ export let Case2: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-          reportFeedback: "CRITICAL FAIL: NEVER replace the controller yourself, unless you have thoroughly determined that the pump is not operational and no blood is circulating. It is much safer to wait for the VAD team to replace the controller if the pump is functional.",
+          reportFeedback:
+            'CRITICAL FAIL: NEVER replace the controller yourself, unless you have thoroughly determined that the pump is not operational and no blood is circulating. It is much safer to wait for the VAD team to replace the controller if the pump is functional.',
         },
       ],
     },
@@ -396,7 +416,8 @@ export let Case2: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-          reportFeedback: "CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. Additionally, if the pump truly was off, you need to replace the controller immediately.",
+          reportFeedback:
+            'CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. Additionally, if the pump truly was off, you need to replace the controller immediately.',
         },
         {
           id: 'pumpOffYouReplace',
@@ -405,7 +426,9 @@ export let Case2: Case = {
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
-          reportFeedback: "CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. However, if the pump was truly off, you correctly determined that you need to replace the controller immediately.",        },
+          reportFeedback:
+            'CRITICAL FAIL: You incorrectly decided that the pump was off. It is important to thoroughly check all available information before coming to a decision about pump status. However, if the pump was truly off, you correctly determined that you need to replace the controller immediately.',
+        },
       ],
     },
   ],
@@ -419,7 +442,8 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
-      reportFeedback: "Good job - it is best to attempt a blood pressure reading with an NIBP cuff first, and move to doppler if a reading cannot be obtained.",
+      reportFeedback:
+        'Good job - it is best to attempt a blood pressure reading with an NIBP cuff first, and move to doppler if a reading cannot be obtained.',
     },
     {
       id: 'doppler',
@@ -429,7 +453,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Blood pressure was normal when checked.",
+      reportFeedback: 'Blood pressure was normal when checked.',
     },
     {
       details: 'Heart Rate',
@@ -439,7 +463,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "There was no measurable heart rate when checked.",
+      reportFeedback: 'There was no measurable heart rate when checked.',
     },
     {
       id: 'temperature',
@@ -449,7 +473,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback:"Temperature was within normal range when checked.",
+      reportFeedback: 'Temperature was within normal range when checked.',
     },
     {
       id: 'pulseOximeter',
@@ -459,7 +483,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "O2 was within normal range when checked.",
+      reportFeedback: 'O2 was within normal range when checked.',
     },
     {
       id: 'respirations',
@@ -469,7 +493,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "Repiration rate was within normal range when checked.",
+      reportFeedback: 'Repiration rate was within normal range when checked.',
     },
   ],
 
@@ -482,7 +506,8 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "VAD coordinator team was called ASAP - this should always be the first step regardless of the case."
+      reportFeedback:
+        'VAD coordinator team was called ASAP - this should always be the first step regardless of the case.',
     },
   ],
   labs: [
@@ -494,7 +519,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "?????",
+      reportFeedback: '?????',
     },
     {
       id: 'inr',
@@ -504,7 +529,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "?????",
+      reportFeedback: '?????',
     },
     {
       id: 'cmp',
@@ -514,7 +539,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
-      reportFeedback: "????",
+      reportFeedback: '????',
     },
     {
       id: 'lactic',
@@ -524,7 +549,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
-      reportFeedback: "??????",
+      reportFeedback: '??????',
     },
     {
       id: 'pt/ptt',
@@ -534,7 +559,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "???????",
+      reportFeedback: '???????',
     },
     {
       id: 'bnp',
@@ -544,29 +569,28 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: "???????",
+      reportFeedback: '???????',
     },
     {
       id: 'angiogram',
       details: 'angriogram',
-      feedback: 'Angriogram shows potential blockage in the middle cerebral artery.',
+      feedback:
+        'Angriogram shows potential blockage in the middle cerebral artery.',
       requiredToCheck: true,
-      criticalFailure: false, 
-      pointValue: 1, 
-      resolvesSimulation: false, 
-      reportFeedback: "?????",
+      criticalFailure: false,
+      pointValue: 1,
+      resolvesSimulation: false,
+      reportFeedback: '?????',
     },
     {
       id: 'non-contrast ct',
       details: 'Non-Contrast CT',
       feedback: 'Imaging from non-con CT rules out hemorrhagic stroke.',
       requiredToCheck: true,
-      criticalFailure: false, 
-      pointValue: 1, 
-      resolvesSimulation: false, 
-      reportFeedback: "?????",
+      criticalFailure: false,
+      pointValue: 1,
+      resolvesSimulation: false,
+      reportFeedback: '?????',
     },
-  ]
+  ],
 };
-
-

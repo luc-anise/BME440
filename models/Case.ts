@@ -47,8 +47,13 @@ export let Case1: Case = {
       'temperature',
       'pulseOximeter',
       'respirations',
+      'ekg',
+      'inr',
+      'cmp',
+      'lactic',
+      'pt/ptt',
     ],
-    totalPoints: 0,
+    totalPoints: 17.25,
   },
   controller: [
     {
@@ -334,8 +339,15 @@ export let Case2: Case = {
       'temperature',
       'pulseOximeter',
       'respirations',
+      'ekg',
+      'inr',
+      'cmp',
+      'lactic',
+      'pt/ptt',
+      'angiogram',
+      'non-contrast ct',
     ],
-    totalPoints: 0,
+    totalPoints: 17.25,
   },
   controller: [
     {

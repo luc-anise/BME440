@@ -5,9 +5,9 @@ import {
   Timestamp,
   collection,
   doc,
-  setDoc,
+  addDoc,
+  getDoc,
 } from '@angular/fire/firestore';
-import { addDoc } from 'firebase/firestore';
 import { Attempt } from 'models/Attempt';
 import { Case, Case1, Case2, CasePossibility } from 'models/Case';
 import { take } from 'rxjs/operators';
@@ -253,5 +253,11 @@ export class CaseService {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  async fetchAttempt(id: string) {
+    const docRef = doc(this.db, 'attempts', id);
+    const docSnap = await getDoc(docRef);
+    return { ...docSnap.data(), id: docSnap.id } as Attempt;
   }
 }

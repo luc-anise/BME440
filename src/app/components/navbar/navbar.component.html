@@ -11,10 +11,10 @@
           </button>
          
         </a>
-        <a class="block lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
+        <a *ngIf="userSignedIn" class="block lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
           <button [routerLink]="['/dashboard']">Dashboard</button>
         </a>
-        <a class="block lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
+        <a *ngIf="userSignedIn" class="block lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
            Report <!-- will fiddle around with the name for this - but essentially report of previous attempts-->
         </a>
         <a class="block hover:text-gray-700 lg:inline-block lg:mt-0 mr-10">

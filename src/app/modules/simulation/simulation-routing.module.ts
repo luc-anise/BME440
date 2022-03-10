@@ -10,6 +10,7 @@ import { SimulationComponent } from './simulation.component';
 const routes: Routes = [
   //{ path: '', redirectTo: '/dashboard' },
   { path: 'report', component: ReportComponent },
+  { path: 'report/:id', component: ReportComponent },
   {
     path: ':id',
     component: SimulationComponent,

@@ -1,5 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
+import {
+  Firestore,
+  Timestamp,
+  collection,
+  doc,
+  setDoc,
+} from '@angular/fire/firestore';
+import { addDoc } from 'firebase/firestore';
+import { Attempt } from 'models/Attempt';
 import { Case, Case1, Case2, CasePossibility } from 'models/Case';
+import { take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
@@ -8,18 +19,21 @@ export class CaseService {
   currentCase?: Case;
   clickedPossibilities: CasePossibility[] = [];
   clickedPossibilitiesIds: string[] = [];
+  attempt: Attempt = {};
   currentSimulation = {
     failed: false,
     complete: false,
   };
 
-  constructor() {}
+  constructor(private auth: Auth, private db: Firestore) {}
 
   startSimulation(c: Case) {
     this.feedback = [];
     this.clickedPossibilities = [];
     this.currentSimulation = { failed: false, complete: false };
     this.currentCase = c;
+    this.attempt = {};
+    this.attempt = { caseID: c.name, startTime: Timestamp.now(), score: 0 };
     // TODO: Timer, how long it took user to complete sim
   }
 
@@ -114,6 +128,13 @@ export class CaseService {
       return;
     }
 
+    // Set ending timestamp
+    this.attempt = {
+      ...this.attempt,
+      endTime: Timestamp.now(),
+      selectedCasePossibilities: this.clickedPossibilities,
+    };
+
     let unordered: string[] = [];
     let ordered: string[] = [];
 
@@ -124,6 +145,12 @@ export class CaseService {
         ordered.push(id);
       }
     });
+
+    this.attempt.score = this.clickedPossibilities
+      .map((cp) => cp.pointValue || 0)
+      .reduce((total: number, val) => {
+        return (total += val);
+      });
 
     if (
       unordered.length === this.currentCase?.key.keyUnordered.length &&
@@ -197,8 +224,29 @@ export class CaseService {
           this.currentCase?.lvadTeam.find((x) => x.id === id);
         return sub ? sub : cp;
       });
-
       console.log(missingCP);
+    }
+
+    this.logAttempt();
+  }
+
+  async logAttempt() {
+    try {
+      // Get user ID
+      const uid = (await user(this.auth).pipe(take(1)).toPromise())?.uid;
+
+      // Add uid to Attempt
+      this.attempt.userID = uid;
+
+      // Save to DB under attempts
+      const docRef = await addDoc(
+        collection(this.db, 'attempts'),
+        this.attempt
+      );
+      
+      console.log(docRef.id);
+    } catch (error) {
+      console.error(error);
     }
   }
 }

@@ -5,20 +5,12 @@ export interface Case {
   vitals: CasePossibility[];
   controller: CasePossibility[];
   lvadTeam: CasePossibility[];
-  //Labs: Labs; -- Not using this yet
+  labs: CasePossibility[];
   key: {
     keyOrdered: string[];
     keyUnordered: string[];
   };
 }
-
-export interface newCase {
-  name: string;
-  details: string;
-  givenInformation: string;
-  tree: CasePossibility[]; // --> [Vitals, Controller, LVADTeam, Labs]
-}
-
 export interface CasePossibility {
   id: string;
   details: string;
@@ -31,45 +23,6 @@ export interface CasePossibility {
   subOptions?: CasePossibility[];
   reportFeedback?: string;
   missingFeedback?: string; 
-}
-
-interface Vitals {
-  //bloodPressure: BloodPressure;
-  NIBPcuff: CasePossibility;
-  doppler: CasePossibility;
-  heartRate: CasePossibility;
-  temperature: CasePossibility;
-  pulseOximeter: CasePossibility;
-  Respirations: CasePossibility;
-}
-
-export interface Controller {
-  display: {
-    parameters: CasePossibility;
-    arrowCheck: CasePossibility;
-  };
-  listenForHum: CasePossibility;
-  pump: {
-    isOn: {
-      haveLVADTeamReplaceController: CasePossibility;
-      replaceControllerYourself: CasePossibility;
-    };
-    isOff: {
-      haveLVADTeamReplaceController: CasePossibility;
-      replaceControllerYourself: CasePossibility;
-    };
-  };
-}
-interface LVADTeam {
-  callCoordinator: CasePossibility;
-}
-interface BloodPressure {
-  NIBPcuff: CasePossibility;
-  doppler: CasePossibility;
-}
-
-interface Labs {
-  CBC: CasePossibility;
 }
 
 export let Case1: Case = {
@@ -258,6 +211,71 @@ export let Case1: Case = {
       reportFeedback: "VAD coordinator team was called ASAP - This should always be the first step regardless of the case.",
     },
   ],
+  labs: [
+    {
+      id: 'ekg',
+      details: 'EKG',
+      feedback: 'EKG is unremarkable compared to standard LVAD patient.',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "????",
+    },
+    {
+      id: 'cbc', //not sure if needed.
+      details: 'CBC',
+      feedback: 'CBC returned ',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "?????",
+    },
+    {
+      id: 'inr',
+      details: 'INR',
+      feedback: 'INR is 2.6.',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "?????",
+    },
+    {
+      id: 'cmp',
+      details: 'CMP',
+      feedback: 'CMP shows slightly elevated creatinine levels.',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "????",
+    },
+    {
+      id: 'lactic',
+      details: 'Lactic',
+      feedback: 'Lactic is slightly elevated.',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "??????",
+    },
+    {
+      id: 'pt/ptt',
+      details: 'PT/PTT',
+      feedback: 'PT returned valued of 31.2',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "???????",
+    },
+    {
+      id: 'bnp',
+      details: 'BNP',
+      feedback: 'Ntpro BNP: 2398',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "???????",
+    },
+  ]
 };
 
 export let Case2: Case = {
@@ -448,6 +466,62 @@ export let Case2: Case = {
       reportFeedback: "VAD coordinator team was called ASAP - this should always be the first step regardless of the case."
     },
   ],
+  labs: [
+    {
+      id: 'ekg',
+      details: 'EKG',
+      feedback: 'EKG is unremarkable compared to standard LVAD patient.',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "?????",
+    },
+    {
+      id: 'inr',
+      details: 'INR',
+      feedback: 'INR is 1.2.',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "?????",
+    },
+    {
+      id: 'cmp',
+      details: 'CMP',
+      feedback: 'CMP shows slightly elevated creatinine levels.',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "????",
+    },
+    {
+      id: 'lactic',
+      details: 'Lactic',
+      feedback: 'Lactic is slightly elevated.',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "??????",
+    },
+    {
+      id: 'pt/ptt',
+      details: 'PT/PTT',
+      feedback: 'PT returned valued of 14.4',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "???????",
+    },
+    {
+      id: 'bnp',
+      details: 'BNP',
+      feedback: 'Ntpro BNP: 2398',
+      requiredToCheck: true,
+      criticalFailure: false,
+      resolvesSimulation: false,
+      reportFeedback: "???????",
+    },
+  ]
 };
 
 

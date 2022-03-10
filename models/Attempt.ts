@@ -8,4 +8,5 @@ export interface Attempt {
   endTime?: Timestamp;
   selectedCasePossibilities?: CasePossibility[];
   score?: number;
+  totalPoints?: number;
 }

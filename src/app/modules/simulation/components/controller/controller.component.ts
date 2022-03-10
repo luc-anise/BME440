@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Controller } from 'models/Case';
 import { CaseService } from 'src/app/services/case.service';
 
 @Component({
@@ -8,7 +7,6 @@ import { CaseService } from 'src/app/services/case.service';
   styleUrls: ['./controller.component.scss'],
 })
 export class ControllerComponent implements OnInit {
-  controller?: Controller;
 
   constructor(public caseService: CaseService) {}
 

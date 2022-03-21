@@ -7,6 +7,9 @@ import {
   doc,
   addDoc,
   getDoc,
+  query,
+  where,
+  getDocs,
 } from '@angular/fire/firestore';
 import { Attempt } from 'models/Attempt';
 import { Case, Case1, Case2, CasePossibility } from 'models/Case';
@@ -259,5 +262,21 @@ export class CaseService {
     const docRef = doc(this.db, 'attempts', id);
     const docSnap = await getDoc(docRef);
     return { ...docSnap.data(), id: docSnap.id } as Attempt;
+  }
+
+  async fetchAttempts() {
+    // Get user ID
+    const uid = (await user(this.auth).pipe(take(1)).toPromise())?.uid;
+    const q = query(
+      collection(this.db, 'attempts'),
+      where('userID', '==', uid)
+    );
+
+    const querySnap = await getDocs(q);
+
+    const attempts = querySnap.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id } as Attempt;
+    });
+    return attempts
   }
 }

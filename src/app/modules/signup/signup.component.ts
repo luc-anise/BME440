@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth, AuthError, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import {
+  Auth,
+  AuthError,
+  createUserWithEmailAndPassword,
+} from '@angular/fire/auth';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -9,7 +13,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  
+
   constructor(private fb: FormBuilder, private auth: Auth) {
     this.signupForm = this.fb.group({
       firstName: [''],
@@ -25,7 +29,15 @@ export class SignupComponent implements OnInit {
   // Use the signup form to create a new user using firebase auth
   async signup() {
     try {
-      await createUserWithEmailAndPassword(this.auth,
+      // ensure passwords match otherwise throw error
+      if (
+        this.signupForm.value.password !== this.signupForm.value.confirmPassword
+      ) {
+        throw new Error('Passwords do not match');
+      }
+
+      await createUserWithEmailAndPassword(
+        this.auth,
         this.signupForm.value.email,
         this.signupForm.value.password
       );

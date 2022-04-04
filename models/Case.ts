@@ -58,7 +58,7 @@ export let Case1: Case = {
       'ekg',
       'cbc',
       'inr',
-      'cmp',
+      'cmp', 
       'lactic',
       'pt/ptt',
       'bnp',
@@ -263,17 +263,17 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '????',
+      reportFeedback: 'EKGs in LVAD patients can differ from a "standard" EKG significantly; however, typically the differences are unremarkable.',
     },
     {
       id: 'cbc', //not sure if needed.
       details: 'CBC',
-      feedback: 'CBC returned ',
+      feedback: 'CBC returned normal/healthy results.',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '?????',
+      reportFeedback: 'CBC results are typically not affected by the LVAD.',
     },
     {
       id: 'inr',
@@ -283,7 +283,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '?????',
+      reportFeedback: 'INR values do not vary signficantly due to the LVAD. This was a normal value.',
     },
     {
       id: 'cmp',
@@ -293,7 +293,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
-      reportFeedback: '????',
+      reportFeedback: 'Kidney function is typically elevated in LVAD patients, so you might expect to see increased creatinine levels.',
     },
     {
       id: 'lactic',
@@ -303,7 +303,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
-      reportFeedback: '??????',
+      reportFeedback: 'LVAD patients typically have elevated blood lactate levels.',
     },
     {
       id: 'pt/ptt',
@@ -313,7 +313,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '???????',
+      reportFeedback: 'Clotting time is typically not affected by the LVAD. This was a normal value.',
     },
     {
       id: 'bnp',
@@ -323,7 +323,7 @@ export let Case1: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '???????',
+      reportFeedback: 'BNP levels are not routinely checked for LVAD patients, but it was included as an extra value to look at.'
     },
   ],
 };
@@ -541,7 +541,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '?????',
+      reportFeedback: 'EKGs in LVAD patients can differ from a "standard" EKG significantly; however, typically the differences are unremarkable.',
     },
     {
       id: 'inr',
@@ -551,7 +551,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '?????',
+      reportFeedback: 'INR values do not vary significantly due to the LVAD. This value was included as an indicator for an ishcemic stroke.',
     },
     {
       id: 'cmp',
@@ -561,7 +561,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
-      reportFeedback: '????',
+      reportFeedback: 'Kidney function is typically elevated in LVAD patients, so you might expect to see increased creatinine levels.',
     },
     {
       id: 'lactic',
@@ -571,7 +571,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 0.75,
       resolvesSimulation: false,
-      reportFeedback: '??????',
+      reportFeedback: 'LVAD patients typically have elevated blood lactate levels.',
     },
     {
       id: 'pt/ptt',
@@ -581,7 +581,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '???????',
+      reportFeedback: 'Clotting time is typically not affected by the LVAD, this is instead indicative of a stroke.',
     },
     {
       id: 'bnp',
@@ -591,7 +591,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '???????',
+      reportFeedback: 'BNP levels are not routinely checked for LVAD patients, but it was included as an extra value here.',
     },
     {
       id: 'angiogram',
@@ -602,7 +602,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '?????',
+      reportFeedback: 'Not LVAD specific - included for stroke diagnosis.',
     },
     {
       id: 'non-contrast ct',
@@ -612,7 +612,7 @@ export let Case2: Case = {
       criticalFailure: false,
       pointValue: 1,
       resolvesSimulation: false,
-      reportFeedback: '?????',
+      reportFeedback: 'Not LVAD specific - included for stroke diagnosis.',
     },
   ],
 };

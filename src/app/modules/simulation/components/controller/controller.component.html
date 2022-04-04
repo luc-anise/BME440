@@ -11,6 +11,11 @@
       class="bg-transparent absolute w-[13%] h-1/6 top-[37%] right-[10%]"
       (click)="onParamClick()"
     ></button>
+    <button
+    class="bg-transparent absolute w-[13%] h-1/6 top-[10%] right-[30%]"
+    [disabled]="getArrowCheckCP(this.caseService.currentCase!).checkedByUser"
+    (click)="this.caseService.handleCasePossiblity(getArrowCheckCP(this.caseService.currentCase!))"
+  ></button>
   </div>
   <app-case-button
     *ngFor="let cp of caseService.currentCase?.controller"

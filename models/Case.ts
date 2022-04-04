@@ -80,7 +80,7 @@ export let Case1: Case = {
     }, */
     {
       id: 'arrowCheck',
-      details: 'Arrow check',
+      details: 'Arrow check (See LVAD)',
       feedback: 'Arrows ON',
       requiredToCheck: false,
       criticalFailure: false,

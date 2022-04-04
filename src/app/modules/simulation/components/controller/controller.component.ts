@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Case, CasePossibility } from 'models/Case';
 import { CaseService } from 'src/app/services/case.service';
 
 @Component({
@@ -29,4 +30,8 @@ export class ControllerComponent implements OnInit {
     this.caseService.addFeedback(`${params.name}: ${params.value}`);
   }
 
+  getArrowCheckCP(C: Case): CasePossibility {
+    let cp = C.controller.find((c) => c.id === 'arrowCheck');
+    return cp!;
+  }
 }

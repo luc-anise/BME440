@@ -19,4 +19,14 @@ export class ControllerComponent implements OnInit {
   constructor(public caseService: CaseService) {}
 
   ngOnInit(): void {}
+
+  onParamClick() {
+    this.paramClicks++;
+    if (this.paramClicks === 5) {
+      this.paramClicks = 0;
+    }
+    const params = this.caseService.currentCase!.params![this.paramClicks];
+    this.caseService.addFeedback(`${params.name}: ${params.value}`);
+  }
+
 }

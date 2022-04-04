@@ -6,7 +6,7 @@ export interface Case {
   controller: CasePossibility[];
   lvadTeam: CasePossibility[];
   labs: CasePossibility[];
-  params?: Number[];
+  params?: { name: string; value: string }[];
   key: {
     keyOrdered: string[];
     keyUnordered: string[];
@@ -30,13 +30,19 @@ export interface CasePossibility {
 export let Case1: Case = {
   name: 'Case 1',
   details: 'SYSTEM CONTROLLER FAULT ALARM',
-  params: [5500, 2.5, 5.0, 8.5, 100],
+  params: [
+    { name: 'Pump Speed', value: '5500' },
+    { name: 'Flow', value: '2.5' },
+    { name: 'PI', value: '5.0' },
+    { name: 'Power', value: '8.5' },
+    { name: 'Battery', value: 'Full' },
+  ],
   givenInformation:
     'Case History: LVAD patient DH (58 YO male) was presented to the Emergency Department after he jumped in the pool to save his son who he thought was drowning',
   key: {
     keyOrdered: [
       'callLVADCoordinator',
-      'parameters',
+      //'parameters',
       'arrowCheck',
       'listenForHum',
       'pumpOnVADReplace',
@@ -60,7 +66,7 @@ export let Case1: Case = {
     totalPoints: 17.25,
   },
   controller: [
-    {
+    /*     {
       details: 'Parameters',
       id: 'parameters',
       feedback: 'Normal Operations',
@@ -71,7 +77,7 @@ export let Case1: Case = {
       reportFeedback: 'Controller parameters are normal when checked.',
       missingFeedback:
         'You did not check the device parameters. A complete pump function assessment requires that you check the arrow lights, listen for the hum, and inspect parameters of the device.',
-    },
+    }, */
     {
       id: 'arrowCheck',
       details: 'Arrow check',
@@ -330,7 +336,7 @@ export let Case2: Case = {
   key: {
     keyOrdered: [
       'callLVADCoordinator',
-      'parameters',
+      //'parameters',
       'arrowCheck',
       'listenForHum',
       'pumpOnVADReplace',
@@ -354,7 +360,7 @@ export let Case2: Case = {
     totalPoints: 17.25,
   },
   controller: [
-    {
+    /*     {
       details: 'Parameters',
       id: 'parameters',
       feedback:
@@ -364,7 +370,7 @@ export let Case2: Case = {
       pointValue: 1,
       resolvesSimulation: false,
       reportFeedback: 'Controller parameters were normal when checked.',
-    },
+    }, */
     {
       id: 'arrowCheck',
       details: 'Arrow check',

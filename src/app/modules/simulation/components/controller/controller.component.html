@@ -1,4 +1,17 @@
-<div *ngIf="caseService.currentCase?.controller" class="w-full mt-5 text-center">
+<div
+  *ngIf="caseService.currentCase?.controller"
+  class="w-full mt-5 text-center"
+>
+  <div class="mx-auto relative w-1/2">
+    <img class="w-full" [src]="lvadImagePaths[paramClicks % 5]" alt="" />
+    <h3 class="absolute text-black text-3xl font-serif top-[42%] right-[30%]">
+      {{ caseService.currentCase!.params![paramClicks % 5] }}
+    </h3>
+    <button
+      class="bg-transparent absolute w-[13%] h-1/6 top-[37%] right-[10%]"
+      (click)="paramClicks = paramClicks + 1"
+    ></button>
+  </div>
   <app-case-button
     *ngFor="let cp of caseService.currentCase?.controller"
     [casePosiblity]="cp"

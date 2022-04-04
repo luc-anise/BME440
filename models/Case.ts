@@ -6,6 +6,7 @@ export interface Case {
   controller: CasePossibility[];
   lvadTeam: CasePossibility[];
   labs: CasePossibility[];
+  params?: Number[];
   key: {
     keyOrdered: string[];
     keyUnordered: string[];
@@ -29,6 +30,7 @@ export interface CasePossibility {
 export let Case1: Case = {
   name: 'Case 1',
   details: 'SYSTEM CONTROLLER FAULT ALARM',
+  params: [5500, 2.5, 5.0, 8.5, 100],
   givenInformation:
     'Case History: LVAD patient DH (58 YO male) was presented to the Emergency Department after he jumped in the pool to save his son who he thought was drowning',
   key: {
@@ -48,10 +50,12 @@ export let Case1: Case = {
       'pulseOximeter',
       'respirations',
       'ekg',
+      'cbc',
       'inr',
       'cmp', 
       'lactic',
       'pt/ptt',
+      'bnp',
     ],
     totalPoints: 17.25,
   },

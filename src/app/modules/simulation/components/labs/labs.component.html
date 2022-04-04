@@ -1,0 +1,8 @@
+<div *ngIf="caseService.currentCase?.labs" class="w-full mt-5 text-center">
+    <app-case-button
+      *ngFor="let cp of caseService.currentCase?.labs"
+      [casePosiblity]="cp"
+    >
+    </app-case-button>
+  </div>
+  

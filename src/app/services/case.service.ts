@@ -5,9 +5,12 @@ import {
   Timestamp,
   collection,
   doc,
-  setDoc,
+  addDoc,
+  getDoc,
+  query,
+  where,
+  getDocs,
 } from '@angular/fire/firestore';
-import { addDoc } from 'firebase/firestore';
 import { Attempt } from 'models/Attempt';
 import { Case, Case1, Case2, CasePossibility } from 'models/Case';
 import { take } from 'rxjs/operators';
@@ -33,7 +36,12 @@ export class CaseService {
     this.currentSimulation = { failed: false, complete: false };
     this.currentCase = c;
     this.attempt = {};
-    this.attempt = { caseID: c.name, startTime: Timestamp.now(), score: 0 };
+    this.attempt = {
+      caseID: c.name,
+      startTime: Timestamp.now(),
+      score: 0,
+      totalPoints: c.key.totalPoints,
+    };
     // TODO: Timer, how long it took user to complete sim
   }
 
@@ -243,10 +251,33 @@ export class CaseService {
         collection(this.db, 'attempts'),
         this.attempt
       );
-      
+
       console.log(docRef.id);
     } catch (error) {
       console.error(error);
     }
   }
+
+  async fetchAttempt(id: string) {
+    const docRef = doc(this.db, 'attempts', id);
+    const docSnap = await getDoc(docRef);
+    return { ...docSnap.data(), id: docSnap.id } as Attempt;
+  }
+
+  async fetchAttempts() {
+    // Get user ID
+    const uid = (await user(this.auth).pipe(take(1)).toPromise())?.uid;
+    const q = query(
+      collection(this.db, 'attempts'),
+      where('userID', '==', uid)
+    );
+
+    const querySnap = await getDocs(q);
+
+    const attempts = querySnap.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id } as Attempt;
+    });
+    return attempts
+  }
+
 }

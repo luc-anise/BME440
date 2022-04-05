@@ -120,6 +120,7 @@ export let Case1: Case = {
           resolvesSimulation: false,
           reportFeedback:
             'Excellent job! You did a thorough assessment of the pump function and determined that the safest action is to wait for the VAD team to replace the controller.',
+          missingFeedback: 'You should always determine if the pump is on or off while treating an LVAD patient.'
         },
         {
           id: 'pumpOnYouReplace',
@@ -416,6 +417,7 @@ export let Case2: Case = {
           resolvesSimulation: false,
           reportFeedback:
             'Good job - You were correct in determining that the pump is functional, but your assessment needs to be more thorough. You left out one or more important factors that could have changed your decision. You correctly determined that the safest action is to wait for the VAD team to replace the controller.',
+          missingFeedback: 'You should always determine if the pump is on or off while treating an LVAD patient.'
         },
         {
           id: 'pumpOnYouReplace',

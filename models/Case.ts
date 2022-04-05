@@ -81,7 +81,7 @@ export let Case1: Case = {
     {
       id: 'arrowCheck',
       details: 'Arrow check (See LVAD)',
-      feedback: 'Arrows ON',
+      feedback: 'Arrows green (on)',
       requiredToCheck: false,
       criticalFailure: false,
       pointValue: 1,
@@ -93,7 +93,7 @@ export let Case1: Case = {
     {
       id: 'listenForHum',
       details: 'Listen for hum',
-      feedback: 'There is an audible hum',
+      feedback: 'Audible hum detected.',
       requiredToCheck: false,
       criticalFailure: false,
       pointValue: 1,
@@ -113,7 +113,7 @@ export let Case1: Case = {
         {
           id: 'pumpOnVADReplace',
           details: 'Pump is on: Have VAD team replace controller',
-          feedback: '',
+          feedback: 'Pump replaced',
           requiredToCheck: false,
           criticalFailure: false,
           pointValue: 1,
@@ -124,12 +124,12 @@ export let Case1: Case = {
         {
           id: 'pumpOnYouReplace',
           details: 'Pump is on: Replace controller yourself immediately',
-          feedback: 'Dead',
+          feedback: 'Critical Fail - simulation end',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
           reportFeedback:
-            'RITICAL FAIL: NEVER replace the controller yourself, unless you have thoroughly determined that the pump is not operational and no blood is circulating. It is much safer to wait for the VAD team to replace the controller if the pump is functional.',
+            'CRITICAL FAIL: NEVER replace the controller yourself, unless you have thoroughly determined that the pump is not operational and no blood is circulating. It is much safer to wait for the VAD team to replace the controller if the pump is functional.',
         },
       ],
     },
@@ -144,7 +144,7 @@ export let Case1: Case = {
         {
           id: 'pumpOffVADReplace',
           details: 'Pump is off: Have VAD team replace controller',
-          feedback: '',
+          feedback: 'Critical Fail - simulation end',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
@@ -154,7 +154,7 @@ export let Case1: Case = {
         {
           id: 'pumpOffYouReplace',
           details: 'Pump is off: Replace controller yourself immediately',
-          feedback: 'Dead',
+          feedback: 'Critical Fail - simulation end',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
@@ -169,7 +169,7 @@ export let Case1: Case = {
     {
       id: 'NIBPCuff',
       details: 'NIBP cuff',
-      feedback: 'Bad reading',
+      feedback: 'NIBP Cuff: Bad Reading',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 0.75,
@@ -182,7 +182,7 @@ export let Case1: Case = {
     {
       id: 'doppler',
       details: 'Doppler',
-      feedback: 'Blood pressure within normal range',
+      feedback: 'Doppler: BP normal',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -194,7 +194,7 @@ export let Case1: Case = {
     {
       details: 'Heart Rate',
       id: 'heartRate',
-      feedback: 'there is no measurable heart rate',
+      feedback: 'HR: Not detected',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -206,7 +206,7 @@ export let Case1: Case = {
     {
       id: 'temperature',
       details: 'Temperature',
-      feedback: 'temperature is within normal range',
+      feedback: 'Temperature: Normal',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -218,7 +218,7 @@ export let Case1: Case = {
     {
       id: 'pulseOximeter',
       details: 'Pulse Oximeter',
-      feedback: 'O2 is within normal range',
+      feedback: 'O2: Normal',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -230,7 +230,7 @@ export let Case1: Case = {
     {
       id: 'respirations',
       details: 'Respirations',
-      feedback: 'Respiration rate is within normal range',
+      feedback: 'RR: Normal',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -258,7 +258,7 @@ export let Case1: Case = {
     {
       id: 'ekg',
       details: 'EKG',
-      feedback: 'EKG is unremarkable compared to standard LVAD patient.',
+      feedback: 'EKG is unremarkable for standard LVAD patient.',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -268,7 +268,7 @@ export let Case1: Case = {
     {
       id: 'cbc', //not sure if needed.
       details: 'CBC',
-      feedback: 'CBC returned normal/healthy results.',
+      feedback: 'CBC: Normal.',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -278,7 +278,7 @@ export let Case1: Case = {
     {
       id: 'inr',
       details: 'INR',
-      feedback: 'INR is 2.6.',
+      feedback: 'INR: 2.6.',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -288,7 +288,7 @@ export let Case1: Case = {
     {
       id: 'cmp',
       details: 'CMP',
-      feedback: 'CMP shows slightly elevated creatinine levels.',
+      feedback: 'CMP: slightly elevated creatinine.',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 0.75,
@@ -298,7 +298,7 @@ export let Case1: Case = {
     {
       id: 'lactic',
       details: 'Lactic',
-      feedback: 'Lactic is slightly elevated.',
+      feedback: 'Lactic: Slightly elevated.',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 0.75,
@@ -308,7 +308,7 @@ export let Case1: Case = {
     {
       id: 'pt/ptt',
       details: 'PT/PTT',
-      feedback: 'PT returned valued of 31.2',
+      feedback: 'PT: 31.2',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -374,7 +374,7 @@ export let Case2: Case = {
     {
       id: 'arrowCheck',
       details: 'Arrow check',
-      feedback: 'Arrows ON',
+      feedback: 'Arrows green (on)',
       requiredToCheck: false,
       criticalFailure: false,
       pointValue: 1,
@@ -384,7 +384,7 @@ export let Case2: Case = {
     {
       id: 'listenForHum',
       details: 'Listen for hum',
-      feedback: 'There is an audible hum',
+      feedback: 'Audible hum detected.',
       requiredToCheck: false,
       criticalFailure: false,
       pointValue: 1,
@@ -402,7 +402,7 @@ export let Case2: Case = {
         {
           id: 'pumpOnVADReplace',
           details: 'Pump is on: Have VAD team replace controller',
-          feedback: '',
+          feedback: 'Pump replaced.',
           requiredToCheck: false,
           criticalFailure: false,
           pointValue: 1,
@@ -413,7 +413,7 @@ export let Case2: Case = {
         {
           id: 'pumpOnYouReplace',
           details: 'Pump is on: Replace controller yourself immediately',
-          feedback: 'Dead',
+          feedback: 'Critical Fail - simulation end',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
@@ -434,7 +434,7 @@ export let Case2: Case = {
         {
           id: 'pumpOffVADReplace',
           details: 'Pump is off: Have VAD team replace controller',
-          feedback: '',
+          feedback: 'Critical Fail - simulation end',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
@@ -444,7 +444,7 @@ export let Case2: Case = {
         {
           id: 'pumpOffYouReplace',
           details: 'Pump is off: Replace controller yourself immediately',
-          feedback: 'Dead',
+          feedback: 'Critical Fail - simulation end',
           requiredToCheck: false,
           criticalFailure: true,
           resolvesSimulation: false,
@@ -459,7 +459,7 @@ export let Case2: Case = {
     {
       id: 'NIBPCuff',
       details: 'NIBP cuff',
-      feedback: 'You are unable to obtain an accurate reading.',
+      feedback: 'NIBP: Bad reading',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 0.75,
@@ -470,7 +470,7 @@ export let Case2: Case = {
     {
       id: 'doppler',
       details: 'Doppler',
-      feedback: 'Doppler shows a mean arterial pressure of 100 mmHg.',
+      feedback: 'MAP: 100 mmHg',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -480,7 +480,7 @@ export let Case2: Case = {
     {
       details: 'Heart Rate',
       id: 'heartRate',
-      feedback: 'There is no measurable heart rate',
+      feedback: 'HR: Not detected',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -490,7 +490,7 @@ export let Case2: Case = {
     {
       id: 'temperature',
       details: 'Temperature',
-      feedback: 'Patient temperature is 38.4 deg C.',
+      feedback: 'Temperature: 38.4 deg C',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -510,7 +510,7 @@ export let Case2: Case = {
     {
       id: 'respirations',
       details: 'Respirations',
-      feedback: 'Respiration rate is within normal range',
+      feedback: 'RR: Normal',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -536,7 +536,7 @@ export let Case2: Case = {
     {
       id: 'ekg',
       details: 'EKG',
-      feedback: 'EKG is unremarkable compared to standard LVAD patient.',
+      feedback: 'EKG: unremarkable for LVAD patient',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -546,7 +546,7 @@ export let Case2: Case = {
     {
       id: 'inr',
       details: 'INR',
-      feedback: 'INR is 1.2.',
+      feedback: 'INR: 1.2',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -556,7 +556,7 @@ export let Case2: Case = {
     {
       id: 'cmp',
       details: 'CMP',
-      feedback: 'CMP shows slightly elevated creatinine levels.',
+      feedback: 'CMP: slightly elevated creatinine',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 0.75,
@@ -566,7 +566,7 @@ export let Case2: Case = {
     {
       id: 'lactic',
       details: 'Lactic',
-      feedback: 'Lactic is slightly elevated.',
+      feedback: 'Lactic: slightly elevated',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 0.75,
@@ -576,7 +576,7 @@ export let Case2: Case = {
     {
       id: 'pt/ptt',
       details: 'PT/PTT',
-      feedback: 'PT returned valued of 14.4',
+      feedback: 'PT: 14.4',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,
@@ -595,9 +595,9 @@ export let Case2: Case = {
     },
     {
       id: 'angiogram',
-      details: 'angriogram',
+      details: 'Angiogram',
       feedback:
-        'Angriogram shows potential blockage in the middle cerebral artery.',
+        'Angiogram shows potential blockage in the middle cerebral artery.',
       requiredToCheck: true,
       criticalFailure: false,
       pointValue: 1,

@@ -331,6 +331,13 @@ export let Case1: Case = {
 export let Case2: Case = {
   name: 'Case 2',
   details: 'SYSTEM CONTROLLER FAULT ALARM',
+  params: [
+    { name: 'Pump Speed', value: '5500' },
+    { name: 'Flow', value: '2.5' },
+    { name: 'PI', value: '5.0' },
+    { name: 'Power', value: '8.5' },
+    { name: 'Battery', value: 'Full' },
+  ],
   givenInformation:
     'Case History: Patient is a 74 YO M with a PMH of Class IV CHF (with LVAD implantation two years ago). Patient presented to the ED following his husband noticing that the patient was slurring their speech and their face looked "funny" on the left side. EMS reported left sided pronator defit and decreased awareness (AOx2). Patient vitals from EMS reported HLD and HTN (160/83). Patient medication list includes sacubitril, valsartan, atorvastatin, metoprolol, furosemide, sprionolactone, aspirin, and warfarin. ',
   key: {

@@ -34,4 +34,6 @@ export class ControllerComponent implements OnInit {
     let cp = C.controller.find((c) => c.id === 'arrowCheck');
     return cp!;
   }
+
+  
 }

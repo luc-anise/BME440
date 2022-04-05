@@ -11,7 +11,8 @@ import { CaseService } from 'src/app/services/case.service';
 export class SimulationComponent implements OnInit {
   currentCase?: Case;
   caseID = '';
-  
+  reportID = '';
+
   constructor(
     public caseService: CaseService,
     private activeRoute: ActivatedRoute
@@ -22,7 +23,7 @@ export class SimulationComponent implements OnInit {
       this.caseID = parms['id'];
       try {
         this.currentCase = await this.caseService.getCaseById(this.caseID);
-        this.caseService.startSimulation(this.currentCase)
+        this.caseService.startSimulation(this.currentCase);
       } catch (error) {
         console.error(error);
       }

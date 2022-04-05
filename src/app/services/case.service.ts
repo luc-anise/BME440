@@ -235,7 +235,7 @@ export class CaseService {
       console.log(missingCP);
     }
 
-    this.logAttempt();
+    return this.logAttempt();
   }
 
   async logAttempt() {
@@ -251,10 +251,12 @@ export class CaseService {
         collection(this.db, 'attempts'),
         this.attempt
       );
-
+      this.attempt.id = docRef.id;
       console.log(docRef.id);
+      return docRef.id
     } catch (error) {
       console.error(error);
+      return error
     }
   }
 

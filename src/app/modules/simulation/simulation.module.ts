@@ -12,6 +12,7 @@ import { CaseButtonComponent } from './components/case-button/case-button.compon
 import { ReportComponent } from './components/report/report.component';
 import { LabsComponent } from './components/labs/labs.component';
 
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,13 @@ import { LabsComponent } from './components/labs/labs.component';
     LvadTeamComponent,
     CaseButtonComponent,
     ReportComponent,
-    LabsComponent
+    LabsComponent,
+    
   ],  
   imports: [
     CommonModule,
-    SimulationRoutingModule
+    SimulationRoutingModule,
+    ClipboardModule
   ]
 })
 export class SimulationModule { }

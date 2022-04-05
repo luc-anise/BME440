@@ -81,9 +81,18 @@
         </div>
         <router-outlet></router-outlet>
       </section>
-
       <section
-        *ngIf="caseService.currentSimulation.failed"
+        *ngIf="
+          (caseService.currentSimulation.failed ||
+            caseService.currentSimulation.complete) &&
+          !caseService.attempt.id
+        "
+        class="container mx-auto px-6 my-4"
+      >
+        <h3 class="w-full text-center font-bold text-4xl">Loading...</h3>
+      </section>
+      <section
+        *ngIf="caseService.currentSimulation.failed && caseService.attempt.id"
         class="container mx-auto px-6 my-4"
       >
         <h3 class="w-full text-center text-red-600 font-bold text-4xl">
@@ -93,11 +102,18 @@
           Please see feedback below.
         </h3>
         <h3 class="w-full text-center text-red-600 font-bold text-2xl">
-          <a [routerLink]="['/simulation/report']">View Report &rsaquo;</a>
+          <a
+            [routerLink]="[
+              '/simulation',
+              'report',
+              this.caseService.attempt.id
+            ]"
+            >View Report &rsaquo;</a
+          >
         </h3>
       </section>
       <section
-        *ngIf="caseService.currentSimulation.complete"
+        *ngIf="caseService.currentSimulation.complete && caseService.attempt.id"
         class="container mx-auto px-6 my-4"
       >
         <h3 class="w-full text-center text-green-500 font-bold text-4xl">
@@ -107,7 +123,14 @@
           Please see feedback below. Good Job!
         </h3>
         <h3 class="w-full text-center text-green-500 font-bold text-2xl">
-          <a [routerLink]="['/simulation/report']">View Report &rsaquo;</a>
+          <a
+            [routerLink]="[
+              '/simulation',
+              'report',
+              this.caseService.attempt.id
+            ]"
+            >View Report &rsaquo;</a
+          >
         </h3>
       </section>
     </div>

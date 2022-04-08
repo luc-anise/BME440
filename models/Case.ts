@@ -340,7 +340,7 @@ export let Case2: Case = {
     { name: 'Battery', value: 'Full' },
   ],
   givenInformation:
-    'Case History: Patient is a 74 YO M with a PMH of Class IV CHF (with LVAD implantation two years ago). Patient presented to the ED following his husband noticing that the patient was slurring their speech and their face looked "funny" on the left side. EMS reported left sided pronator defit and decreased awareness (AOx2). Patient vitals from EMS reported HLD and HTN (160/83). Patient medication list includes sacubitril, valsartan, atorvastatin, metoprolol, furosemide, sprionolactone, aspirin, and warfarin. ',
+    'Case History: Patient is a 74 YO M with a PMH of Class IV CHF (with LVAD implantation two years ago). Patient presented to the ED following his husband noticing that the patient was slurring their speech and their face looked "funny" on the left side. EMS reported left sided pronator drift and decreased awareness (AOx2). Patient vitals from EMS were reported, with a blood pressure of 160/83. Patient medication list includes sacubitril, valsartan, atorvastatin, metoprolol, furosemide, sprionolactone, aspirin, and warfarin. ',
   key: {
     keyOrdered: [
       'callLVADCoordinator',
@@ -401,7 +401,7 @@ export let Case2: Case = {
     },
     {
       id: 'pumpIsOn',
-      details: 'Pump is on',
+      details: 'Is pump on?',
       feedback: '',
       requiredToCheck: false,
       criticalFailure: false,
@@ -409,8 +409,8 @@ export let Case2: Case = {
       subOptions: [
         {
           id: 'pumpOnVADReplace',
-          details: 'Pump is on: Have VAD team replace controller',
-          feedback: 'Pump replaced.',
+          details: 'Yes, pump is on: Have VAD team replace controller',
+          feedback: 'Controller replaced.',
           requiredToCheck: false,
           criticalFailure: false,
           pointValue: 1,
@@ -421,7 +421,7 @@ export let Case2: Case = {
         },
         {
           id: 'pumpOnYouReplace',
-          details: 'Pump is on: Replace controller yourself immediately',
+          details: 'Yes, pump is on: Replace controller yourself immediately',
           feedback: 'Critical Fail - simulation end',
           requiredToCheck: false,
           criticalFailure: true,
@@ -434,7 +434,7 @@ export let Case2: Case = {
 
     {
       id: 'pumpIsOff',
-      details: 'Pump is off',
+      details: 'Is pump off?',
       feedback: '',
       requiredToCheck: false,
       criticalFailure: false,
@@ -442,7 +442,7 @@ export let Case2: Case = {
       subOptions: [
         {
           id: 'pumpOffVADReplace',
-          details: 'Pump is off: Have VAD team replace controller',
+          details: 'Yes, pump is off: Have VAD team replace controller',
           feedback: 'Critical Fail - simulation end',
           requiredToCheck: false,
           criticalFailure: true,
@@ -452,7 +452,7 @@ export let Case2: Case = {
         },
         {
           id: 'pumpOffYouReplace',
-          details: 'Pump is off: Replace controller yourself immediately',
+          details: 'Yes, pump is off: Replace controller yourself immediately',
           feedback: 'Critical Fail - simulation end',
           requiredToCheck: false,
           criticalFailure: true,
